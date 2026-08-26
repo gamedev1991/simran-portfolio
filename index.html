@@ -6,16 +6,20 @@
 <title>Simran Malhotra — Strategic Brand Communications &amp; Business Storyteller</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
     --ink: #20201C;
-    --paper: #FAF6EF;
+    --paper: #FDFBF5;
     --paper-dim: #F1EBDD;
     --accent: #B5652C;
     --accent-soft: #E8CBAE;
     --meta: #8A8578;
     --rule: #DFD6C2;
+    --kraft: #C6A06A;
+    --kraft-dark: #A9814E;
+    --sticky: #F6D65A;
+    --sticky-edge: #E2BE3E;
   }
 
   * { box-sizing: border-box; }
@@ -24,11 +28,15 @@
 
   body {
     margin: 0;
-    background: var(--paper);
+    background:
+      radial-gradient(120% 90% at 15% -10%, rgba(255,255,255,0.10), transparent 55%),
+      radial-gradient(140% 100% at 100% 110%, rgba(0,0,0,0.14), transparent 60%),
+      linear-gradient(160deg, var(--kraft), var(--kraft-dark) 85%);
     color: var(--ink);
     font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    padding: 2.5rem 1rem 3.5rem;
   }
 
   h1, h2, h3 {
@@ -44,17 +52,8 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .wrap {
-    max-width: 50rem;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--meta);
+  .script {
+    font-family: 'Caveat', 'Segoe Script', cursive;
     font-weight: 600;
   }
 
@@ -74,88 +73,106 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
-  /* Hero */
-  header.hero {
+  /* The sheet */
+  .sheet {
     position: relative;
-    padding: 5.5rem 0 3.5rem;
-    background:
-      radial-gradient(60% 55% at 82% 10%, rgba(181, 101, 44, 0.16), transparent 70%),
-      linear-gradient(180deg, var(--paper-dim), var(--paper) 70%);
-    overflow: hidden;
+    max-width: 46rem;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 3.5rem 1.75rem 3rem;
+    transform: rotate(-0.6deg);
+    box-shadow:
+      0 2px 0 rgba(255,255,255,0.5) inset,
+      0 30px 60px rgba(20, 16, 8, 0.35),
+      0 8px 18px rgba(20, 16, 8, 0.22);
   }
-  header.hero .hero-inner {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 2.25rem;
-  }
-  header.hero .eyebrow { margin-bottom: 1.25rem; }
-  header.hero h1 {
-    font-size: 2.5rem;
-    line-height: 1.06;
-    letter-spacing: -0.015em;
-  }
-  header.hero h1 em {
-    position: relative;
-    font-style: italic;
-    color: var(--accent);
-  }
-  header.hero h1 em .underline {
+  .torn-top, .torn-bottom {
     position: absolute;
-    left: -2%;
-    bottom: -0.12em;
-    width: 104%;
-    height: 0.35em;
-    color: var(--accent);
+    left: 0;
+    width: 100%;
+    height: 1.1rem;
+    background: var(--paper);
   }
-  header.hero .lede {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 34rem;
-    color: #40403A;
+  .torn-top {
+    top: 0;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 16 L0 4 L3 9 L7 1 L11 8 L15 2 L19 10 L23 3 L27 9 L31 2 L35 8 L40 3 L40 16 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 16 L0 4 L3 9 L7 1 L11 8 L15 2 L19 10 L23 3 L27 9 L31 2 L35 8 L40 3 L40 16 Z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
+    transform: translateY(-99%);
   }
-  header.hero .cta-row {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.5rem;
+  .torn-bottom {
+    bottom: 0;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 12 L35 8 L31 14 L27 7 L23 13 L19 6 L15 14 L11 8 L7 14 L3 7 L0 12 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 12 L35 8 L31 14 L27 7 L23 13 L19 6 L15 14 L11 8 L7 14 L3 7 L0 12 Z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
+    transform: translateY(99%);
   }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.9rem 1.75rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    box-shadow: 0 6px 18px rgba(32, 32, 28, 0.18);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  }
-  .btn:hover {
-    background: var(--accent);
-    text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(181, 101, 44, 0.32);
-  }
-  header.hero .cta-row .meta-link { font-size: 0.9rem; color: var(--meta); }
-  header.hero .cta-row .meta-link a { color: var(--ink); font-weight: 600; }
 
+  .paperclip {
+    position: absolute;
+    top: -1.6rem;
+    left: 2.25rem;
+    width: 2.4rem;
+    height: 4.5rem;
+    color: #9AA0A6;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.28));
+    transform: rotate(-8deg);
+    z-index: 3;
+  }
+
+  /* Header / name block */
+  .tag-sticker {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 0.35rem 0.9rem;
+    border-radius: 3px;
+    transform: rotate(-2deg);
+  }
+  .name-block { margin-top: 1.6rem; }
+  .name-block h1 {
+    font-size: 2.6rem;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin-top: 0.6rem;
+  }
+  .name-block .role-script {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: var(--accent);
+    margin-top: 0.35rem;
+    transform: rotate(-1deg);
+  }
+
+  /* Intro row: photo + text */
+  .intro-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2.25rem;
+  }
   .hero-photo-frame {
     flex-shrink: 0;
     position: relative;
-    width: 9rem;
-    padding: 0.6rem 0.6rem 1.6rem;
+    width: 9.5rem;
+    padding: 0.6rem 0.6rem 1.7rem;
     background: var(--paper);
-    box-shadow: 0 16px 32px rgba(32,32,28,0.18), 0 2px 6px rgba(32,32,28,0.1);
+    box-shadow: 0 16px 30px rgba(32,32,28,0.22), 0 2px 6px rgba(32,32,28,0.12);
     transform: rotate(-4deg);
+    align-self: flex-start;
   }
   .hero-portrait {
     display: block;
     width: 100%;
-    height: 8.2rem;
+    height: 8.6rem;
     object-fit: cover;
     object-position: top center;
   }
@@ -163,72 +180,155 @@
     position: absolute;
     width: 3.2rem;
     height: 1.3rem;
-    background: rgba(232, 203, 174, 0.55);
+    background: rgba(232, 203, 174, 0.6);
     border: 1px solid rgba(255,255,255,0.4);
     box-shadow: 0 2px 4px rgba(32,32,28,0.12);
   }
-  .tape.tape-left {
-    top: -0.6rem;
-    left: -0.7rem;
-    transform: rotate(-38deg);
+  .tape.tape-left { top: -0.6rem; left: -0.7rem; transform: rotate(-38deg); }
+  .tape.tape-right { bottom: 1rem; right: -0.8rem; transform: rotate(35deg); }
+
+  .intro-copy { position: relative; }
+  .intro-copy .lede {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    max-width: 34rem;
   }
-  .tape.tape-right {
-    bottom: 0.9rem;
-    right: -0.8rem;
-    transform: rotate(35deg);
+  .arrow-doodle {
+    display: none;
+    position: absolute;
+    width: 3.2rem;
+    color: var(--accent);
+    opacity: 0.8;
+  }
+  .cta-row {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    box-shadow: 0 6px 18px rgba(32, 32, 28, 0.2);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:hover {
+    background: var(--accent);
+    text-decoration: none;
+    transform: translateY(-2px) rotate(-1deg);
+    box-shadow: 0 10px 24px rgba(181, 101, 44, 0.35);
+  }
+  .cta-row .meta-link { font-size: 0.85rem; color: var(--meta); }
+  .cta-row .meta-link a { color: var(--ink); font-weight: 600; }
+
+  /* Sticky note */
+  .sticky-note {
+    margin-top: 2rem;
+    max-width: 20rem;
+    background: var(--sticky);
+    padding: 1.25rem 1.4rem 1.5rem;
+    transform: rotate(2.5deg);
+    box-shadow: 0 12px 22px rgba(32,32,28,0.18);
+    position: relative;
+  }
+  .sticky-note::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 2.6rem;
+    height: 1.1rem;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  .sticky-note p {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.35rem;
+    line-height: 1.28;
+    color: #4A3B0E;
+  }
+  .sticky-note .sticky-label {
+    display: block;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #6B5715;
+    margin-bottom: 0.4rem;
   }
 
-  /* Torn-paper divider */
-  .torn-edge {
-    height: 0.9rem;
+  /* Dividers */
+  .rip-divider {
+    height: 1.5rem;
+    margin: 2.75rem -1.75rem 2rem;
     background: var(--paper-dim);
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x;
-    mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 14px;
-    mask-size: 40px 14px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 16 L36 10 L32 15 L28 8 L24 14 L20 6 L16 13 L12 5 L8 12 L4 4 L0 11 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 16 L36 10 L32 15 L28 8 L24 14 L20 6 L16 13 L12 5 L8 12 L4 4 L0 11 Z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
   }
 
-  /* Client strip */
-  .clients {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--paper-dim);
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-soft);
+    padding-bottom: 0.15rem;
+    margin-bottom: 0.9rem;
   }
-  .clients .eyebrow { margin-bottom: 1rem; text-align: center; }
+  .sheet h2 { font-size: 1.7rem; margin-bottom: 1.5rem; }
+
+  /* Client logos as taped stickers */
   .client-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    gap: 1.75rem 2.75rem;
+    gap: 1.1rem 1.6rem;
   }
-  .client-row img {
-    height: 1.85rem;
-    max-width: 8.5rem;
+  .client-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper-dim);
+    border: 1px solid var(--rule);
+    padding: 0.55rem 1rem;
+    box-shadow: 0 4px 10px rgba(32,32,28,0.08);
+  }
+  .client-chip:nth-child(odd) { transform: rotate(-1.5deg); }
+  .client-chip:nth-child(even) { transform: rotate(1.5deg); }
+  .client-chip img {
+    height: 1.5rem;
+    max-width: 7rem;
     width: auto;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.65);
-    transition: filter 0.25s ease, transform 0.25s ease;
+    filter: grayscale(100%) opacity(0.7);
+    transition: filter 0.25s ease;
   }
-  .client-row img:hover {
-    filter: grayscale(0%) opacity(1);
-    transform: translateY(-1px);
-  }
+  .client-chip:hover img { filter: grayscale(0%) opacity(1); }
 
-  /* Proof bar */
-  .proof {
-    position: relative;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem 1.5rem;
+  /* Proof stats + stamp */
+  .proof-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.75rem 2rem;
   }
   .stamp-inline {
+    flex-shrink: 0;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -241,7 +341,6 @@
     text-align: center;
     transform: rotate(-8deg);
     padding: 0.4rem;
-    margin: 0 auto 1.5rem;
   }
   .stamp-inline .stamp-num {
     font-family: 'Fraunces', Georgia, serif;
@@ -257,150 +356,80 @@
     margin-top: 0.2rem;
     line-height: 1.2;
   }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.25rem;
+    flex: 1;
+    min-width: 15rem;
+  }
   .proof-item .num {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
     line-height: 1;
     color: var(--accent);
   }
   .proof-item .label {
-    margin-top: 0.4rem;
-    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
     color: var(--meta);
     line-height: 1.4;
   }
 
-  /* Section scaffolding */
-  section { padding: 3.75rem 0; border-bottom: 1px solid var(--rule); }
-  section:last-of-type { border-bottom: none; }
-  #about { border-bottom: none; }
-  section > .wrap > .eyebrow { margin-bottom: 0.75rem; }
-  section h2 { font-size: 1.9rem; margin-bottom: 2rem; }
-
-  /* Case studies — scroll-snap track */
-  .work-track {
+  /* Skills — colored app-icon badges */
+  .skills-grid {
     display: flex;
-    gap: 1.25rem;
-    overflow-x: auto;
-    padding: 0.25rem 0 1.5rem;
-    margin: 0 -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    scroll-snap-type: x proximity;
-    scroll-padding-left: 1.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-  .work-track::-webkit-scrollbar { height: 6px; }
-  .work-track::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 999px; }
-
-  .role {
-    scroll-snap-align: start;
-    flex: 0 0 88%;
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 0.9rem;
+  }
+  .skill-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     background: var(--paper-dim);
     border: 1px solid var(--rule);
-    border-radius: 14px;
-    padding: 1.75rem;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem 0.4rem 0.4rem;
   }
-  .role:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(32, 32, 28, 0.1);
-    border-color: var(--accent-soft);
-  }
-  .role-head {
+  .skill-badge .icon {
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 7px;
     display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
-  .role-head .co { font-family: 'Fraunces', Georgia, serif; font-size: 1.3rem; }
-  .role-head .title-dates {
-    font-size: 0.85rem;
-    color: var(--meta);
-  }
-  .role p.narrative {
-    font-size: 0.98rem;
-    line-height: 1.65;
-  }
-  .stat-pairs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    margin-top: 0.4rem;
-  }
-  .stat-pair {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-  }
-  .stat-pair .num {
+    align-items: center;
+    justify-content: center;
+    color: #fff;
     font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--ink);
-    white-space: nowrap;
+    font-weight: 700;
+    font-size: 0.72rem;
+    flex-shrink: 0;
   }
-  .stat-pair .desc {
-    font-size: 0.83rem;
-    color: var(--meta);
-  }
-  .scroll-hint {
-    font-size: 0.78rem;
-    color: var(--meta);
-    margin-top: -1rem;
-    margin-bottom: 1.75rem;
-  }
+  .skill-badge span.label { font-size: 0.82rem; font-weight: 600; color: #40403A; }
 
-  /* About */
-  #about .bio { font-size: 1rem; line-height: 1.75; max-width: 42rem; }
-  #about .bio + .bio { margin-top: 1.1rem; }
-  #about blockquote {
-    margin: 1.75rem 0 0;
-    padding: 1.25rem 1.5rem;
-    border-left: 3px solid var(--accent);
-    background: var(--paper-dim);
-    border-radius: 0 10px 10px 0;
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    color: #40403A;
-    max-width: 36rem;
-  }
-
-  /* Capabilities — torn notepad card */
+  /* Qualities — torn notepad */
   .notepad {
     position: relative;
     max-width: 34rem;
     background: var(--paper-dim);
     background-image: repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 2.05rem,
-      var(--rule) 2.05rem,
-      var(--rule) calc(2.05rem + 1px)
+      to bottom, transparent, transparent 2.05rem,
+      var(--rule) 2.05rem, var(--rule) calc(2.05rem + 1px)
     );
     padding: 2rem 1.75rem 1.5rem;
     margin-top: 0.7rem;
-    transform: rotate(-0.6deg);
-    box-shadow: 0 14px 30px rgba(32,32,28,0.09);
+    transform: rotate(-0.5deg);
+    box-shadow: 0 14px 26px rgba(32,32,28,0.1);
   }
   .notepad::before {
     content: '';
     position: absolute;
-    top: -0.65rem;
-    left: 0;
-    width: 100%;
-    height: 0.9rem;
+    top: -0.65rem; left: 0; width: 100%; height: 0.9rem;
     background: var(--paper-dim);
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x;
-    mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 14px;
-    mask-size: 40px 14px;
+    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+    -webkit-mask-size: 40px 14px; mask-size: 40px 14px;
   }
   .tag-list {
     display: flex;
@@ -418,218 +447,314 @@
     align-items: center;
     gap: 0.4rem;
   }
-  .tag-list li::before {
-    content: '✓';
-    color: var(--accent);
-    font-weight: 700;
+  .tag-list li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+  /* Case studies — scroll-snap track of torn cards */
+  .work-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 0.25rem 0.25rem 1.25rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .work-track::-webkit-scrollbar { height: 6px; }
+  .work-track::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 999px; }
+  .scroll-hint { font-size: 0.78rem; color: var(--meta); margin: -0.75rem 0 1.25rem; }
+
+  .role {
+    scroll-snap-align: start;
+    flex: 0 0 86%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    background: var(--paper-dim);
+    border: 1px solid var(--rule);
+    padding: 1.6rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .role:nth-child(odd) { transform: rotate(-0.8deg); }
+  .role:nth-child(even) { transform: rotate(0.8deg); }
+  .role:hover {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow: 0 16px 32px rgba(32, 32, 28, 0.12);
+    border-color: var(--accent-soft);
+  }
+  .role-head { display: flex; flex-direction: column; gap: 0.15rem; }
+  .role-head .co { font-family: 'Fraunces', Georgia, serif; font-size: 1.2rem; }
+  .role-head .title-dates { font-size: 0.8rem; color: var(--meta); }
+  .role p.narrative { font-size: 0.94rem; line-height: 1.6; }
+  .stat-pairs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.3rem; }
+  .stat-pair { display: flex; align-items: baseline; gap: 0.5rem; }
+  .stat-pair .num {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: 1rem; color: var(--ink); white-space: nowrap;
+  }
+  .stat-pair .desc { font-size: 0.8rem; color: var(--meta); }
+
+  /* About blockquote */
+  .bio { font-size: 0.98rem; line-height: 1.7; max-width: 40rem; }
+  .bio + .bio { margin-top: 1rem; }
+  blockquote {
+    margin: 1.6rem 0 0;
+    padding: 1.1rem 1.4rem;
+    border-left: 3px solid var(--accent);
+    background: var(--paper-dim);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: #40403A;
+    max-width: 34rem;
   }
 
-  /* Contact / footer */
-  footer {
-    padding: 4rem 0 5rem;
-    background: linear-gradient(180deg, var(--paper), var(--paper-dim));
-  }
-  footer h2 { font-size: 2.1rem; margin-bottom: 0.75rem; }
-  footer .lede { font-size: 1rem; color: #40403A; max-width: 34rem; margin-bottom: 2rem; }
+  /* Contact */
+  .contact-block { max-width: 30rem; }
   .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
-    font-size: 1.05rem;
+    gap: 0.75rem;
+    font-size: 1rem;
+    margin-top: 1rem;
   }
-  .contact-links a { color: var(--ink); font-weight: 700; }
+  .contact-links a { color: var(--ink); font-weight: 700; display: inline-flex; align-items: center; gap: 0.6rem; }
   .contact-links a:hover { color: var(--accent); }
-  .contact-links .loc { color: var(--meta); font-weight: 400; }
-  footer .signoff {
+  .contact-links .icn { width: 1.15rem; height: 1.15rem; flex-shrink: 0; color: var(--accent); }
+  .contact-links .loc { color: var(--meta); font-weight: 400; display: flex; align-items: center; gap: 0.6rem; }
+
+  .sheet-footer {
     margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--rule);
     font-size: 0.8rem;
     color: var(--meta);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .caption {
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    margin-top: 1.5rem;
   }
 
   @media (min-width: 640px) {
-    header.hero { padding: 6.5rem 0 5rem; }
-    header.hero .hero-inner {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header.hero h1 { font-size: 3.75rem; }
-    header.hero .lede { font-size: 1.3rem; }
-    .hero-photo-frame { width: 12rem; }
-    .hero-portrait { height: 11rem; }
-    .clients .eyebrow { text-align: left; }
-    .client-row { justify-content: flex-start; }
-    .proof-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .proof-item .num { font-size: 2.5rem; }
-    section { padding: 5.5rem 0; }
-    section h2 { font-size: 2.4rem; }
-    .role { flex: 0 0 46%; }
-    footer h2 { font-size: 2.8rem; }
+    body { padding: 4rem 1.5rem; }
+    .sheet { padding: 4.5rem 3rem 3.5rem; }
+    .name-block h1 { font-size: 3.4rem; }
+    .name-block .role-script { font-size: 2.3rem; }
+    .intro-row { flex-direction: row; align-items: flex-start; gap: 2.5rem; }
+    .intro-copy { flex: 1; }
+    .arrow-doodle { display: block; top: -2.6rem; right: 1rem; }
+    .rip-divider { margin-left: -3rem; margin-right: -3rem; }
+    .sheet h2 { font-size: 2.1rem; }
+    .role { flex: 0 0 47%; }
   }
 
   @media (min-width: 900px) {
-    .role { flex: 0 0 32%; }
+    .role { flex: 0 0 31%; }
   }
 </style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="wrap hero-inner">
-      <div>
-        <p class="eyebrow">Simran Malhotra</p>
-        <h1>I turn business agendas into brand narratives people <em>believe<svg class="underline" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 20 2, 38 12, 58 6 S 100 2, 118 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></em>. 🚀</h1>
+  <div class="sheet">
+    <div class="torn-top" aria-hidden="true"></div>
+
+    <svg class="paperclip" viewBox="0 0 24 44" fill="none" aria-hidden="true">
+      <path d="M6 12 V32 a6 6 0 0 0 12 0 V8 a4 4 0 0 0 -8 0 V28 a2 2 0 0 0 4 0 V12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <span class="tag-sticker">Résumé &amp; Story</span>
+
+    <div class="name-block">
+      <h1>Simran Malhotra</h1>
+      <span class="role-script">Strategic Brand Communications &amp; Business Storyteller</span>
+    </div>
+
+    <div class="intro-row reveal">
+      <div class="hero-photo-frame">
+        <span class="tape tape-left" aria-hidden="true"></span>
+        <img class="hero-portrait" src="assets/simran.png" alt="Simran Malhotra" />
+        <span class="tape tape-right" aria-hidden="true"></span>
+      </div>
+      <div class="intro-copy">
+        <svg class="arrow-doodle" viewBox="0 0 60 40" fill="none" aria-hidden="true">
+          <path d="M2 4 C 20 2, 30 14, 22 24 C 18 30, 30 32, 40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M32 20 L40 24 L36 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
         <p class="lede">Strategic brand communications and content strategy for 10+ years — from early-stage start-ups to Fortune 500s. I build the voice, the messaging, and the story that make a business case land.</p>
         <div class="cta-row">
           <a class="btn" href="mailto:msimran9096@gmail.com">Let's talk brand strategy →</a>
           <p class="meta-link">Currently: Senior Manager, Content — <a href="#work">Suzlon Group</a></p>
         </div>
       </div>
-      <div class="hero-photo-frame">
-        <span class="tape tape-left" aria-hidden="true"></span>
-        <img class="hero-portrait" src="assets/simran.png" alt="Simran Malhotra" />
-        <span class="tape tape-right" aria-hidden="true"></span>
-      </div>
     </div>
-  </header>
 
-  <div class="torn-edge" aria-hidden="true"></div>
+    <div class="sticky-note reveal">
+      <span class="sticky-label">My philosophy</span>
+      <p>A good brand narrative isn't decoration on top of the business case — it's how the business case gets believed.</p>
+    </div>
 
-  <div class="clients reveal">
-    <div class="wrap">
-      <p class="eyebrow">Trusted across</p>
+    <div class="rip-divider" aria-hidden="true"></div>
+
+    <div class="reveal">
+      <p class="section-tag">Trusted across</p>
       <div class="client-row">
-        <img src="assets/logos/suzlon.svg" alt="Suzlon Group" />
-        <img src="assets/logos/repos-energy.png" alt="Repos Energy" />
-        <img src="assets/logos/gwec.svg" alt="GWEC" />
-        <img src="assets/logos/bcg.svg" alt="Boston Consulting Group" />
-        <img src="assets/logos/kpmg.svg" alt="KPMG" />
+        <div class="client-chip"><img src="assets/logos/suzlon.svg" alt="Suzlon Group" /></div>
+        <div class="client-chip"><img src="assets/logos/repos-energy.png" alt="Repos Energy" /></div>
+        <div class="client-chip"><img src="assets/logos/gwec.svg" alt="GWEC" /></div>
+        <div class="client-chip"><img src="assets/logos/bcg.svg" alt="Boston Consulting Group" /></div>
+        <div class="client-chip"><img src="assets/logos/kpmg.svg" alt="KPMG" /></div>
       </div>
     </div>
-  </div>
 
-  <div class="proof reveal">
-    <div class="wrap">
-      <div class="stamp-inline" aria-hidden="true">
-        <span class="stamp-num">10+</span>
-        <span class="stamp-label">Years in<br>brand strategy</span>
-      </div>
-    </div>
-    <div class="wrap proof-grid">
-      <div class="proof-item">
-        <p class="num tabular">114%</p>
-        <p class="label">Brand value growth driven at Suzlon Group — ₹1,650cr to ₹4,026cr</p>
-      </div>
-      <div class="proof-item">
-        <p class="num tabular">₹200cr+</p>
-        <p class="label">In brand campaigns led, for a global top-5 wind energy company</p>
-      </div>
-      <div class="proof-item">
-        <p class="num tabular">100+</p>
-        <p class="label">Businesses served across sectors, industries, and countries</p>
-      </div>
-      <div class="proof-item">
-        <p class="num tabular">300K+</p>
-        <p class="label">Monthly visits grown from 6K for one client, in 12 months</p>
-      </div>
-    </div>
-  </div>
+    <div class="rip-divider" aria-hidden="true"></div>
 
-  <section id="work" class="reveal">
-    <div class="wrap">
-      <p class="eyebrow">Selected Work</p>
+    <div class="reveal">
+      <p class="section-tag">By the numbers</p>
+      <div class="proof-row">
+        <div class="stamp-inline" aria-hidden="true">
+          <span class="stamp-num">10+</span>
+          <span class="stamp-label">Years in<br>brand strategy</span>
+        </div>
+        <div class="proof-grid">
+          <div class="proof-item">
+            <p class="num tabular">114%</p>
+            <p class="label">Brand value growth at Suzlon Group — ₹1,650cr to ₹4,026cr</p>
+          </div>
+          <div class="proof-item">
+            <p class="num tabular">₹200cr+</p>
+            <p class="label">In brand campaigns led, for a top-5 wind energy company</p>
+          </div>
+          <div class="proof-item">
+            <p class="num tabular">100+</p>
+            <p class="label">Businesses served across sectors and countries</p>
+          </div>
+          <div class="proof-item">
+            <p class="num tabular">300K+</p>
+            <p class="label">Monthly visits grown from 6K for one client, in 12 months</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rip-divider" aria-hidden="true"></div>
+
+    <div id="work" class="reveal">
+      <p class="section-tag">Selected Work</p>
       <h2>Where the story met the business result</h2>
       <p class="scroll-hint">Swipe or scroll to see all three →</p>
+
+      <div class="work-track">
+        <div class="role">
+          <div class="role-head">
+            <p class="co">Suzlon Group</p>
+            <p class="title-dates">Senior Manager — Content, Corporate Communications · Sept 2023 — Present</p>
+          </div>
+          <p class="narrative">Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
+          <div class="stat-pairs">
+            <div class="stat-pair"><span class="num tabular">114%</span><span class="desc">brand value growth (₹1,650cr → ₹4,026cr)</span></div>
+            <div class="stat-pair"><span class="num tabular">₹200cr+</span><span class="desc">campaigns led for a top-5 wind energy company</span></div>
+            <div class="stat-pair"><span class="num">GWEC · BCG · KPMG</span><span class="desc">global agencies collaborated with on industry reports</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <p class="co">Repos Energy</p>
+            <p class="title-dates">Associate Lead, Storyteller · Jun 2023 — Sept 2023</p>
+          </div>
+          <p class="narrative">Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
+          <div class="stat-pairs">
+            <div class="stat-pair"><span class="num tabular">~₹100cr</span><span class="desc">brand voice guide established</span></div>
+            <div class="stat-pair"><span class="num">Start-up → scale</span><span class="desc">social content built for reach and engagement</span></div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <p class="co">Freelance &amp; Consulting</p>
+            <p class="title-dates">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
+          </div>
+          <p class="narrative">Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
+          <div class="stat-pairs">
+            <div class="stat-pair"><span class="num tabular">6K → 300K+</span><span class="desc">monthly visits grown for one client in 12 months</span></div>
+            <div class="stat-pair"><span class="num tabular">+30% / +80%</span><span class="desc">engagement and organic reach lifted via analytics-led content</span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="work-track">
-      <div class="role">
-        <div class="role-head">
-          <p class="co">Suzlon Group</p>
-          <p class="title-dates">Senior Manager — Content, Corporate Communications · Sept 2023 — Present</p>
-        </div>
-        <p class="narrative">Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
-        <div class="stat-pairs">
-          <div class="stat-pair"><span class="num tabular">114%</span><span class="desc">brand value growth (₹1,650cr → ₹4,026cr)</span></div>
-          <div class="stat-pair"><span class="num tabular">₹200cr+</span><span class="desc">campaigns led for a top-5 wind energy company</span></div>
-          <div class="stat-pair"><span class="num">GWEC · BCG · KPMG</span><span class="desc">global agencies collaborated with on industry reports</span></div>
-        </div>
-      </div>
+    <div class="rip-divider" aria-hidden="true"></div>
 
-      <div class="role">
-        <div class="role-head">
-          <p class="co">Repos Energy</p>
-          <p class="title-dates">Associate Lead, Storyteller · Jun 2023 — Sept 2023</p>
-        </div>
-        <p class="narrative">Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
-        <div class="stat-pairs">
-          <div class="stat-pair"><span class="num tabular">~₹100cr</span><span class="desc">brand voice guide established</span></div>
-          <div class="stat-pair"><span class="num">Start-up → scale</span><span class="desc">social content built for reach and engagement</span></div>
-        </div>
-      </div>
-
-      <div class="role">
-        <div class="role-head">
-          <p class="co">Freelance &amp; Consulting</p>
-          <p class="title-dates">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
-        </div>
-        <p class="narrative">Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
-        <div class="stat-pairs">
-          <div class="stat-pair"><span class="num tabular">6K → 300K+</span><span class="desc">monthly visits grown for one client in 12 months</span></div>
-          <div class="stat-pair"><span class="num tabular">+30% / +80%</span><span class="desc">engagement and organic reach lifted via analytics-led content</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="reveal">
-    <div class="wrap">
-      <p class="eyebrow">About</p>
+    <div id="about" class="reveal">
+      <p class="section-tag">About</p>
       <h2>The short version</h2>
       <p class="bio">I strengthen business agenda and brand equity with high-impact messaging, brand voices, and business narratives. From small start-ups to listed companies and the Fortune 500s, I've created content foundations and strategies for 10+ years, for 100+ businesses across sectors, industries, and countries.</p>
       <p class="bio">To do something more meaningful, I joined renewable energy and climate action in my last role — where I was part of the core brand team and led the new brand voice for a 360-degree rebranding exercise.</p>
-      <blockquote>A good brand narrative isn't decoration on top of the business case. It's how the business case gets believed.</blockquote>
+      <blockquote>Every brand has a business case buried inside it. My job is to find it and say it so people believe it.</blockquote>
     </div>
-  </section>
 
-  <div class="torn-edge" aria-hidden="true"></div>
+    <div class="rip-divider" aria-hidden="true"></div>
 
-  <section id="capabilities" class="reveal">
-    <div class="wrap">
-      <p class="eyebrow">Capabilities</p>
+    <div id="skills" class="reveal">
+      <p class="section-tag">Skills</p>
       <h2>What I bring to the table</h2>
+      <div class="skills-grid">
+        <div class="skill-badge"><span class="icon" style="background:#3D6E9C;">CS</span><span class="label">Content Strategy</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#B5652C;">IC</span><span class="label">Campaign Communication</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#7A5C9E;">PR</span><span class="label">Strategic PR Messaging</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#3F8F6E;">TL</span><span class="label">C-suite Thought Leadership</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#B4485C;">NG</span><span class="label">Narrative &amp; Governance</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#8A8578;">PB</span><span class="label">Project &amp; Budget Oversight</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#3D6E9C;">AV</span><span class="label">Agency / Vendor Mgmt</span></div>
+        <div class="skill-badge"><span class="icon" style="background:#3F8F6E;">SEO</span><span class="label">SEO Content Strategy</span></div>
+      </div>
+    </div>
+
+    <div id="qualities" class="reveal">
+      <p class="section-tag" style="margin-top:2.5rem;">How I work</p>
       <div class="notepad">
         <ul class="tag-list">
-          <li>Content Strategy</li>
-          <li>Integrated Campaign Communication</li>
-          <li>Strategic PR Messaging</li>
-          <li>C-suite Thought Leadership</li>
-          <li>Narrative Creation &amp; Governance</li>
-          <li>Project &amp; Budget Oversight</li>
-          <li>Agency / Vendor Management</li>
-          <li>SEO Content Strategy</li>
+          <li>Narrative-first thinking</li>
+          <li>Data-informed strategy</li>
+          <li>Cross-functional collaboration</li>
+          <li>C-suite fluency</li>
+          <li>Comfortable in ambiguity</li>
+          <li>Deadline-driven delivery</li>
         </ul>
       </div>
     </div>
-  </section>
 
-  <footer id="contact" class="reveal">
-    <div class="wrap">
-      <p class="eyebrow">Get in touch</p>
+    <div class="rip-divider" aria-hidden="true"></div>
+
+    <div id="contact" class="reveal contact-block">
+      <p class="section-tag">Get in touch</p>
       <h2>Let's build your next brand story.</h2>
-      <p class="lede">Open to senior content and brand communications roles, consulting engagements, and conversations about what a brand's next chapter should sound like.</p>
-      <a class="btn" href="mailto:msimran9096@gmail.com" style="margin-bottom: 2rem;">Let's discuss your needs →</a>
-      <div class="contact-links" style="margin-top: 1.75rem;">
-        <a href="mailto:msimran9096@gmail.com">msimran9096@gmail.com</a>
-        <a href="tel:+919096104666">+91 90961 04666</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn — Simran Malhotra</a>
-        <p class="loc">Pune, India</p>
+      <p class="bio">Open to senior content and brand communications roles, consulting engagements, and conversations about what a brand's next chapter should sound like.</p>
+      <a class="btn" href="mailto:msimran9096@gmail.com" style="margin-top:1.5rem;">Let's discuss your needs →</a>
+      <div class="contact-links">
+        <a href="mailto:msimran9096@gmail.com"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>msimran9096@gmail.com</a>
+        <a href="tel:+919096104666"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 90961 04666</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.87 3.36 3.66z"/></svg>LinkedIn — Simran Malhotra</a>
+        <p class="loc"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Pune, India</p>
       </div>
-      <p class="signoff">Simran Malhotra — Strategic Brand Communications &amp; Business Storyteller</p>
     </div>
-  </footer>
+
+    <div class="sheet-footer">
+      <span>Simran Malhotra — Strategic Brand Communications &amp; Business Storyteller</span>
+      <span class="script" style="font-size:1.3rem; color: var(--accent);">— S. Malhotra</span>
+    </div>
+
+    <div class="torn-bottom" aria-hidden="true"></div>
+  </div>
+
+  <p class="caption">Scroll for the full story ↑</p>
 
   <script>
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
@@ -640,7 +765,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
     } else {
       document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
