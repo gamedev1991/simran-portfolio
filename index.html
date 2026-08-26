@@ -158,17 +158,20 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem 2.25rem;
+    gap: 1.75rem 2.75rem;
   }
-  .client-row span {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: 0.01em;
-    color: #57544B;
-    white-space: nowrap;
+  .client-row img {
+    height: 1.85rem;
+    max-width: 8.5rem;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.65);
+    transition: filter 0.25s ease, transform 0.25s ease;
   }
-  .client-row .dot { color: var(--accent-soft); font-size: 1rem; }
+  .client-row img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: translateY(-1px);
+  }
 
   /* Proof bar */
   .proof {
@@ -388,11 +391,11 @@
     <div class="wrap">
       <p class="eyebrow">Trusted across</p>
       <div class="client-row">
-        <span>Suzlon Group</span><span class="dot">•</span>
-        <span>Repos Energy</span><span class="dot">•</span>
-        <span>GWEC</span><span class="dot">•</span>
-        <span>BCG</span><span class="dot">•</span>
-        <span>KPMG</span>
+        <img src="assets/logos/suzlon.svg" alt="Suzlon Group" />
+        <img src="assets/logos/repos-energy.png" alt="Repos Energy" />
+        <img src="assets/logos/gwec.svg" alt="GWEC" />
+        <img src="assets/logos/bcg.svg" alt="Boston Consulting Group" />
+        <img src="assets/logos/kpmg.svg" alt="KPMG" />
       </div>
     </div>
   </div>
