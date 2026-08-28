@@ -3,758 +3,341 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simran Malhotra — Strategic Brand Communications &amp; Business Storyteller</title>
+<title>Simran Malhotra — Brand Strategy &amp; Content Direction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#000000',
+          panel: '#0d0d0d',
+          acc: '#F5C518',
+          fg2: '#888888',
+          fg3: '#555555',
+          fg4: '#333333',
+          fg5: '#222222',
+          line: '#1a1a1a',
+        },
+        fontFamily: {
+          display: ['Montserrat', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          body: ['DM Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
 <style>
-  :root {
-    --ink: #20201C;
-    --paper: #FDFBF5;
-    --paper-dim: #F1EBDD;
-    --accent: #B5652C;
-    --accent-soft: #E8CBAE;
-    --meta: #8A8578;
-    --rule: #DFD6C2;
-    --kraft: #C6A06A;
-    --kraft-dark: #A9814E;
-    --sticky: #F6D65A;
-    --sticky-edge: #E2BE3E;
-  }
-
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: #F5C518; color: #000000; }
 
-  body {
-    margin: 0;
-    background:
-      radial-gradient(120% 90% at 15% -10%, rgba(255,255,255,0.10), transparent 55%),
-      radial-gradient(140% 100% at 100% 110%, rgba(0,0,0,0.14), transparent 60%),
-      linear-gradient(160deg, var(--kraft), var(--kraft-dark) 85%);
-    color: var(--ink);
-    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    padding: 2.5rem 1rem 3.5rem;
+  @media (hover:hover) and (pointer:fine) {
+    body { cursor: none; }
+    .cursor-dot, .cursor-ring { position: fixed; top:0; left:0; pointer-events:none; z-index: 9999; transform: translate(-50%,-50%); }
+    .cursor-dot { width: 6px; height: 6px; background: #F5C518; border-radius: 50%; }
+    .cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(245,197,24,.35); border-radius: 50%; transition: width .2s cubic-bezier(.16,1,.3,1), height .2s cubic-bezier(.16,1,.3,1), border-color .2s ease; }
+    .cursor-ring.is-active { width: 54px; height: 54px; border-color: #F5C518; }
   }
 
-  h1, h2, h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    margin: 0;
-    text-wrap: balance;
-    font-weight: 500;
-  }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-  p { margin: 0; }
+  .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+  .marquee-track.slow { animation-duration: 40s; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .carousel-track { scrollbar-width: none; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .snap-start { scroll-snap-align: start; }
 
-  .script {
-    font-family: 'Caveat', 'Segoe Script', cursive;
-    font-weight: 600;
-  }
-
-  .tabular { font-variant-numeric: tabular-nums; }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* The sheet */
-  .sheet {
-    position: relative;
-    max-width: 46rem;
-    margin: 0 auto;
-    background: var(--paper);
-    padding: 3.5rem 1.75rem 3rem;
-    transform: rotate(-0.6deg);
-    box-shadow:
-      0 2px 0 rgba(255,255,255,0.5) inset,
-      0 30px 60px rgba(20, 16, 8, 0.35),
-      0 8px 18px rgba(20, 16, 8, 0.22);
-  }
-  .torn-top, .torn-bottom {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1.1rem;
-    background: var(--paper);
-  }
-  .torn-top {
-    top: 0;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 16 L0 4 L3 9 L7 1 L11 8 L15 2 L19 10 L23 3 L27 9 L31 2 L35 8 L40 3 L40 16 Z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 16 L0 4 L3 9 L7 1 L11 8 L15 2 L19 10 L23 3 L27 9 L31 2 L35 8 L40 3 L40 16 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
-    transform: translateY(-99%);
-  }
-  .torn-bottom {
-    bottom: 0;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 12 L35 8 L31 14 L27 7 L23 13 L19 6 L15 14 L11 8 L7 14 L3 7 L0 12 Z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 12 L35 8 L31 14 L27 7 L23 13 L19 6 L15 14 L11 8 L7 14 L3 7 L0 12 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
-    transform: translateY(99%);
-  }
-
-  .paperclip {
-    position: absolute;
-    top: -1.6rem;
-    left: 2.25rem;
-    width: 2.4rem;
-    height: 4.5rem;
-    color: #9AA0A6;
-    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.28));
-    transform: rotate(-8deg);
-    z-index: 3;
-  }
-
-  /* Header / name block */
-  .tag-sticker {
-    display: inline-block;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--paper);
-    background: var(--ink);
-    padding: 0.35rem 0.9rem;
-    border-radius: 3px;
-    transform: rotate(-2deg);
-  }
-  .name-block { margin-top: 1.6rem; }
-  .name-block h1 {
-    font-size: 2.6rem;
-    line-height: 1.02;
-    letter-spacing: -0.01em;
-    margin-top: 0.6rem;
-  }
-  .name-block .role-script {
-    display: block;
-    font-family: 'Caveat', cursive;
-    font-weight: 600;
-    font-size: 1.9rem;
-    color: var(--accent);
-    margin-top: 0.35rem;
-    transform: rotate(-1deg);
-  }
-
-  /* Intro row: photo + text */
-  .intro-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-    margin-top: 2.25rem;
-  }
-  .hero-photo-frame {
-    flex-shrink: 0;
-    position: relative;
-    width: 9.5rem;
-    padding: 0.6rem 0.6rem 1.7rem;
-    background: var(--paper);
-    box-shadow: 0 16px 30px rgba(32,32,28,0.22), 0 2px 6px rgba(32,32,28,0.12);
-    transform: rotate(-4deg);
-    align-self: flex-start;
-  }
-  .hero-portrait {
-    display: block;
-    width: 100%;
-    height: 8.6rem;
-    object-fit: cover;
-    object-position: top center;
-  }
-  .tape {
-    position: absolute;
-    width: 3.2rem;
-    height: 1.3rem;
-    background: rgba(232, 203, 174, 0.6);
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: 0 2px 4px rgba(32,32,28,0.12);
-  }
-  .tape.tape-left { top: -0.6rem; left: -0.7rem; transform: rotate(-38deg); }
-  .tape.tape-right { bottom: 1rem; right: -0.8rem; transform: rotate(35deg); }
-
-  .intro-copy { position: relative; }
-  .intro-copy .lede {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    max-width: 34rem;
-  }
-  .arrow-doodle {
-    display: none;
-    position: absolute;
-    width: 3.2rem;
-    color: var(--accent);
-    opacity: 0.8;
-  }
-  .cta-row {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.25rem;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.85rem 1.6rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.92rem;
-    box-shadow: 0 6px 18px rgba(32, 32, 28, 0.2);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  }
-  .btn:hover {
-    background: var(--accent);
-    text-decoration: none;
-    transform: translateY(-2px) rotate(-1deg);
-    box-shadow: 0 10px 24px rgba(181, 101, 44, 0.35);
-  }
-  .cta-row .meta-link { font-size: 0.85rem; color: var(--meta); }
-  .cta-row .meta-link a { color: var(--ink); font-weight: 600; }
-
-  /* Sticky note */
-  .sticky-note {
-    margin-top: 2rem;
-    max-width: 20rem;
-    background: var(--sticky);
-    padding: 1.25rem 1.4rem 1.5rem;
-    transform: rotate(2.5deg);
-    box-shadow: 0 12px 22px rgba(32,32,28,0.18);
-    position: relative;
-  }
-  .sticky-note::before {
-    content: '';
-    position: absolute;
-    top: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    width: 2.6rem;
-    height: 1.1rem;
-    background: rgba(255,255,255,0.55);
-    border: 1px solid rgba(255,255,255,0.5);
-  }
-  .sticky-note p {
-    font-family: 'Caveat', cursive;
-    font-weight: 600;
-    font-size: 1.35rem;
-    line-height: 1.28;
-    color: #4A3B0E;
-  }
-  .sticky-note .sticky-label {
-    display: block;
-    font-family: 'Public Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #6B5715;
-    margin-bottom: 0.4rem;
-  }
-
-  /* Dividers */
-  .rip-divider {
-    height: 1.5rem;
-    margin: 2.75rem -1.75rem 2rem;
-    background: var(--paper-dim);
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 16 L36 10 L32 15 L28 8 L24 14 L20 6 L16 13 L12 5 L8 12 L4 4 L0 11 Z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 0 L40 16 L36 10 L32 15 L28 8 L24 14 L20 6 L16 13 L12 5 L8 12 L4 4 L0 11 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 16px; mask-size: 40px 16px;
-  }
-
-  .section-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--accent);
-    border-bottom: 2px solid var(--accent-soft);
-    padding-bottom: 0.15rem;
-    margin-bottom: 0.9rem;
-  }
-  .sheet h2 { font-size: 1.7rem; margin-bottom: 1.5rem; }
-
-  /* Client logos as taped stickers */
-  .client-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.1rem 1.6rem;
-  }
-  .client-chip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--paper-dim);
-    border: 1px solid var(--rule);
-    padding: 0.55rem 1rem;
-    box-shadow: 0 4px 10px rgba(32,32,28,0.08);
-  }
-  .client-chip:nth-child(odd) { transform: rotate(-1.5deg); }
-  .client-chip:nth-child(even) { transform: rotate(1.5deg); }
-  .client-chip img {
-    height: 1.5rem;
-    max-width: 7rem;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(100%) opacity(0.7);
-    transition: filter 0.25s ease;
-  }
-  .client-chip:hover img { filter: grayscale(0%) opacity(1); }
-
-  /* Proof stats + stamp */
-  .proof-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.75rem 2rem;
-  }
-  .stamp-inline {
-    flex-shrink: 0;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 5.5rem;
-    height: 5.5rem;
-    border-radius: 999px;
-    border: 2px dashed var(--accent);
-    color: var(--accent);
-    text-align: center;
-    transform: rotate(-8deg);
-    padding: 0.4rem;
-  }
-  .stamp-inline .stamp-num {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    line-height: 1;
-  }
-  .stamp-inline .stamp-label {
-    font-size: 0.55rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-top: 0.2rem;
-    line-height: 1.2;
-  }
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1.25rem;
-    flex: 1;
-    min-width: 15rem;
-  }
-  .proof-item .num {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--accent);
-  }
-  .proof-item .label {
-    margin-top: 0.35rem;
-    font-size: 0.78rem;
-    color: var(--meta);
-    line-height: 1.4;
-  }
-
-  /* Skills — colored app-icon badges */
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-  }
-  .skill-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    background: var(--paper-dim);
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    padding: 0.4rem 0.9rem 0.4rem 0.4rem;
-  }
-  .skill-badge .icon {
-    width: 1.9rem;
-    height: 1.9rem;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    flex-shrink: 0;
-  }
-  .skill-badge span.label { font-size: 0.82rem; font-weight: 600; color: #40403A; }
-
-  /* Qualities — torn notepad */
-  .notepad {
-    position: relative;
-    max-width: 34rem;
-    background: var(--paper-dim);
-    background-image: repeating-linear-gradient(
-      to bottom, transparent, transparent 2.05rem,
-      var(--rule) 2.05rem, var(--rule) calc(2.05rem + 1px)
-    );
-    padding: 2rem 1.75rem 1.5rem;
-    margin-top: 0.7rem;
-    transform: rotate(-0.5deg);
-    box-shadow: 0 14px 26px rgba(32,32,28,0.1);
-  }
-  .notepad::before {
-    content: '';
-    position: absolute;
-    top: -0.65rem; left: 0; width: 100%; height: 0.9rem;
-    background: var(--paper-dim);
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14' preserveAspectRatio='none'%3E%3Cpath d='M0 14 L0 5 L4 9 L8 2 L12 8 L16 3 L20 9 L24 4 L28 10 L32 3 L36 8 L40 4 L40 14 Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
-    -webkit-mask-size: 40px 14px; mask-size: 40px 14px;
-  }
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 0.85rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .tag-list li {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #40403A;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .tag-list li::before { content: '✓'; color: var(--accent); font-weight: 700; }
-
-  /* Case studies — scroll-snap track of torn cards */
-  .work-track {
-    display: flex;
-    gap: 1.25rem;
-    overflow-x: auto;
-    padding: 0.25rem 0.25rem 1.25rem;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-  .work-track::-webkit-scrollbar { height: 6px; }
-  .work-track::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 999px; }
-  .scroll-hint { font-size: 0.78rem; color: var(--meta); margin: -0.75rem 0 1.25rem; }
-
-  .role {
-    scroll-snap-align: start;
-    flex: 0 0 86%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    background: var(--paper-dim);
-    border: 1px solid var(--rule);
-    padding: 1.6rem;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .role:nth-child(odd) { transform: rotate(-0.8deg); }
-  .role:nth-child(even) { transform: rotate(0.8deg); }
-  .role:hover {
-    transform: translateY(-4px) rotate(0deg);
-    box-shadow: 0 16px 32px rgba(32, 32, 28, 0.12);
-    border-color: var(--accent-soft);
-  }
-  .role-head { display: flex; flex-direction: column; gap: 0.15rem; }
-  .role-head .co { font-family: 'Fraunces', Georgia, serif; font-size: 1.2rem; }
-  .role-head .title-dates { font-size: 0.8rem; color: var(--meta); }
-  .role p.narrative { font-size: 0.94rem; line-height: 1.6; }
-  .stat-pairs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.3rem; }
-  .stat-pair { display: flex; align-items: baseline; gap: 0.5rem; }
-  .stat-pair .num {
-    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
-    font-size: 1rem; color: var(--ink); white-space: nowrap;
-  }
-  .stat-pair .desc { font-size: 0.8rem; color: var(--meta); }
-
-  /* About blockquote */
-  .bio { font-size: 0.98rem; line-height: 1.7; max-width: 40rem; }
-  .bio + .bio { margin-top: 1rem; }
-  blockquote {
-    margin: 1.6rem 0 0;
-    padding: 1.1rem 1.4rem;
-    border-left: 3px solid var(--accent);
-    background: var(--paper-dim);
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 1.08rem;
-    color: #40403A;
-    max-width: 34rem;
-  }
-
-  /* Contact */
-  .contact-block { max-width: 30rem; }
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  .contact-links a { color: var(--ink); font-weight: 700; display: inline-flex; align-items: center; gap: 0.6rem; }
-  .contact-links a:hover { color: var(--accent); }
-  .contact-links .icn { width: 1.15rem; height: 1.15rem; flex-shrink: 0; color: var(--accent); }
-  .contact-links .loc { color: var(--meta); font-weight: 400; display: flex; align-items: center; gap: 0.6rem; }
-
-  .sheet-footer {
-    margin-top: 2.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px dashed var(--rule);
-    font-size: 0.8rem;
-    color: var(--meta);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .caption {
-    text-align: center;
-    color: rgba(255,255,255,0.75);
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    margin-top: 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    body { padding: 4rem 1.5rem; }
-    .sheet { padding: 4.5rem 3rem 3.5rem; }
-    .name-block h1 { font-size: 3.4rem; }
-    .name-block .role-script { font-size: 2.3rem; }
-    .intro-row { flex-direction: row; align-items: flex-start; gap: 2.5rem; }
-    .intro-copy { flex: 1; }
-    .arrow-doodle { display: block; top: -2.6rem; right: 1rem; }
-    .rip-divider { margin-left: -3rem; margin-right: -3rem; }
-    .sheet h2 { font-size: 2.1rem; }
-    .role { flex: 0 0 47%; }
-  }
-
-  @media (min-width: 900px) {
-    .role { flex: 0 0 31%; }
-  }
+  .hero-portrait img { filter: grayscale(100%) contrast(1.08) brightness(.92); mix-blend-mode: luminosity; }
 </style>
 </head>
-<body>
+<body class="bg-ink text-white font-body leading-relaxed">
 
-  <div class="sheet">
-    <div class="torn-top" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
-    <svg class="paperclip" viewBox="0 0 24 44" fill="none" aria-hidden="true">
-      <path d="M6 12 V32 a6 6 0 0 0 12 0 V8 a4 4 0 0 0 -8 0 V28 a2 2 0 0 0 4 0 V12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-    </svg>
+  <header class="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center justify-between px-5 sm:px-8 lg:px-16 bg-black/75 backdrop-blur-md border-b border-line">
+    <a href="#top" class="flex items-center gap-2 font-display font-extrabold tracking-wide text-sm uppercase">
+      <span class="w-[9px] h-[9px] bg-acc rotate-45 inline-block flex-shrink-0"></span>Simran
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#work" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Work</a>
+      <a href="#history" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">History</a>
+      <a href="#skills" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Skills</a>
+      <a href="#contact" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Contact</a>
+    </nav>
+    <a href="mailto:msimran9096@gmail.com" class="inline-flex items-center gap-2 bg-acc text-ink font-display font-extrabold text-[11px] tracking-[.1em] uppercase px-4 py-2.5 hover:bg-[#ffd23f] hover:-translate-y-0.5 transition-all">Let's Talk</a>
+  </header>
 
-    <span class="tag-sticker">Résumé &amp; Story</span>
+  <main id="top">
+    <section class="relative pt-[136px] pb-16 sm:pb-20 border-b border-line overflow-hidden">
+      <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(60% 45% at 82% 12%, rgba(245,197,24,.08), transparent 60%), radial-gradient(40% 30% at 10% 90%, rgba(245,197,24,.05), transparent 60%);"></div>
 
-    <div class="name-block">
-      <h1>Simran Malhotra</h1>
-      <span class="role-script">Strategic Brand Communications &amp; Business Storyteller</span>
-    </div>
+      <div class="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Brand Strategy · Content Direction · Storyteller</span>
 
-    <div class="intro-row reveal">
-      <div class="hero-photo-frame">
-        <span class="tape tape-left" aria-hidden="true"></span>
-        <img class="hero-portrait" src="assets/simran.png" alt="Simran Malhotra" />
-        <span class="tape tape-right" aria-hidden="true"></span>
-      </div>
-      <div class="intro-copy">
-        <svg class="arrow-doodle" viewBox="0 0 60 40" fill="none" aria-hidden="true">
-          <path d="M2 4 C 20 2, 30 14, 22 24 C 18 30, 30 32, 40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <path d="M32 20 L40 24 L36 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <p class="lede">Strategic brand communications and content strategy for 10+ years — from early-stage start-ups to Fortune 500s. I build the voice, the messaging, and the story that make a business case land.</p>
-        <div class="cta-row">
-          <a class="btn" href="mailto:msimran9096@gmail.com">Let's talk brand strategy →</a>
-          <p class="meta-link">Currently: Senior Manager, Content — <a href="#work">Suzlon Group</a></p>
+        <h1 class="font-display font-black uppercase leading-[.92] tracking-tight text-[clamp(3rem,12vw,8.2rem)] mt-2">
+          <span class="block text-[.28em] font-bold text-fg2 tracking-[.08em] mb-2">Simran</span>
+          <span class="block">Malh<em class="not-italic text-acc">o</em>tra</span>
+        </h1>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 font-display font-bold text-xs tracking-[.12em] uppercase text-fg2">
+          <span>Content Strategy</span><span class="text-acc">◆</span>
+          <span>Brand Voice</span><span class="text-acc">◆</span>
+          <span>Business Storytelling</span>
         </div>
-      </div>
-    </div>
 
-    <div class="sticky-note reveal">
-      <span class="sticky-label">My philosophy</span>
-      <p>A good brand narrative isn't decoration on top of the business case — it's how the business case gets believed.</p>
-    </div>
-
-    <div class="rip-divider" aria-hidden="true"></div>
-
-    <div class="reveal">
-      <p class="section-tag">Trusted across</p>
-      <div class="client-row">
-        <div class="client-chip"><img src="assets/logos/suzlon.svg" alt="Suzlon Group" /></div>
-        <div class="client-chip"><img src="assets/logos/repos-energy.png" alt="Repos Energy" /></div>
-        <div class="client-chip"><img src="assets/logos/gwec.svg" alt="GWEC" /></div>
-        <div class="client-chip"><img src="assets/logos/bcg.svg" alt="Boston Consulting Group" /></div>
-        <div class="client-chip"><img src="assets/logos/kpmg.svg" alt="KPMG" /></div>
-      </div>
-    </div>
-
-    <div class="rip-divider" aria-hidden="true"></div>
-
-    <div class="reveal">
-      <p class="section-tag">By the numbers</p>
-      <div class="proof-row">
-        <div class="stamp-inline" aria-hidden="true">
-          <span class="stamp-num">10+</span>
-          <span class="stamp-label">Years in<br>brand strategy</span>
-        </div>
-        <div class="proof-grid">
-          <div class="proof-item">
-            <p class="num tabular">114%</p>
-            <p class="label">Brand value growth at Suzlon Group — ₹1,650cr to ₹4,026cr</p>
+        <div class="reveal mt-10 grid grid-cols-1 lg:grid-cols-[1.3fr_.9fr] gap-10 items-start">
+          <div>
+            <p class="text-base sm:text-lg leading-relaxed text-[#cfcfcf] max-w-xl">Strategic brand communications and content strategy for 10+ years — from early-stage start-ups to Fortune 500s. I build the voice, the messaging, and the story that make a business case land.</p>
+            <p class="mt-4 text-sm leading-relaxed text-fg2 max-w-xl">I strengthen business agenda and brand equity with high-impact messaging, brand voices, and business narratives. From small start-ups to listed companies and the Fortune 500s, I've created content foundations and strategies for 10+ years, for 100+ businesses across sectors, industries, and countries.</p>
+            <p class="mt-3 text-sm leading-relaxed text-fg2 max-w-xl">To do something more meaningful, I joined renewable energy and climate action in my last role — where I was part of the core brand team and led the new brand voice for a 360-degree rebranding exercise.</p>
+            <blockquote class="mt-6 border-l-[3px] border-acc bg-panel px-6 py-4 font-display font-bold text-base leading-snug max-w-lg">"Every brand has a business case buried inside it. My job is to find it and say it so people believe it."</blockquote>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="mailto:msimran9096@gmail.com" class="inline-flex items-center gap-2 bg-acc text-ink font-display font-extrabold text-xs tracking-[.1em] uppercase px-7 py-4 hover:bg-[#ffd23f] hover:-translate-y-1 transition-all">Download CV ↓</a>
+              <a href="#work" class="inline-flex items-center gap-2 border border-fg4 text-white font-display font-bold text-xs tracking-[.1em] uppercase px-7 py-4 hover:border-acc hover:text-acc hover:-translate-y-1 transition-all">View Work</a>
+            </div>
           </div>
-          <div class="proof-item">
-            <p class="num tabular">₹200cr+</p>
-            <p class="label">In brand campaigns led, for a top-5 wind energy company</p>
-          </div>
-          <div class="proof-item">
-            <p class="num tabular">100+</p>
-            <p class="label">Businesses served across sectors and countries</p>
-          </div>
-          <div class="proof-item">
-            <p class="num tabular">300K+</p>
-            <p class="label">Monthly visits grown from 6K for one client, in 12 months</p>
+
+          <div class="relative flex justify-center lg:justify-end lg:sticky lg:top-24">
+            <svg viewBox="0 0 24 24" class="absolute -top-5 -right-3 w-6 h-6 text-fg4 pointer-events-none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 24 24" class="absolute -bottom-4 -left-5 w-8 h-8 text-fg4 pointer-events-none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3" fill="none"/></svg>
+            <div class="hero-portrait relative w-full max-w-xs aspect-[3/4] bg-panel overflow-hidden border border-line">
+              <img src="assets/simran.png" alt="Simran Malhotra" class="w-full h-full object-cover object-top" />
+              <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(245,197,24,0) 55%, rgba(0,0,0,.75) 100%);"></div>
+              <span class="absolute left-4 bottom-4 z-10 font-display font-extrabold text-[11px] tracking-[.12em] uppercase text-acc">Currently — Suzlon Group</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="bg-acc border-b border-line overflow-hidden" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Content Strategy</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Brand Voice</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Campaign Communication</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">C-Suite Thought Leadership</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">SEO Strategy</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Narrative Governance</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Content Strategy</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Brand Voice</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Campaign Communication</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">C-Suite Thought Leadership</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">SEO Strategy</span>
+        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Narrative Governance</span>
+      </div>
     </div>
 
-    <div class="rip-divider" aria-hidden="true"></div>
-
-    <div id="work" class="reveal">
-      <p class="section-tag">Selected Work</p>
-      <h2>Where the story met the business result</h2>
-      <p class="scroll-hint">Swipe or scroll to see all three →</p>
-
-      <div class="work-track">
-        <div class="role">
-          <div class="role-head">
-            <p class="co">Suzlon Group</p>
-            <p class="title-dates">Senior Manager — Content, Corporate Communications · Sept 2023 — Present</p>
+    <section id="numbers" class="border-b border-line py-16 sm:py-20">
+      <div class="reveal max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Credentials</span>
+        <h2 class="mt-3 mb-10 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">By The <span class="text-acc">Numbers</span></h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line">
+          <div class="border-r border-b border-line p-6 sm:p-8">
+            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">10+</p>
+            <p class="mt-3 text-[13px] text-fg2 leading-snug">Years of experience in brand strategy and content leadership.</p>
           </div>
-          <p class="narrative">Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
-          <div class="stat-pairs">
-            <div class="stat-pair"><span class="num tabular">114%</span><span class="desc">brand value growth (₹1,650cr → ₹4,026cr)</span></div>
-            <div class="stat-pair"><span class="num tabular">₹200cr+</span><span class="desc">campaigns led for a top-5 wind energy company</span></div>
-            <div class="stat-pair"><span class="num">GWEC · BCG · KPMG</span><span class="desc">global agencies collaborated with on industry reports</span></div>
+          <div class="border-r border-b border-line p-6 sm:p-8">
+            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">114%</p>
+            <p class="mt-3 text-[13px] text-fg2 leading-snug">Brand value growth at Suzlon Group — ₹1,650cr to ₹4,026cr.</p>
           </div>
-        </div>
-
-        <div class="role">
-          <div class="role-head">
-            <p class="co">Repos Energy</p>
-            <p class="title-dates">Associate Lead, Storyteller · Jun 2023 — Sept 2023</p>
+          <div class="border-r border-b border-line p-6 sm:p-8">
+            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">₹200cr+</p>
+            <p class="mt-3 text-[13px] text-fg2 leading-snug">In brand campaigns led, for a top-5 wind energy company.</p>
           </div>
-          <p class="narrative">Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
-          <div class="stat-pairs">
-            <div class="stat-pair"><span class="num tabular">~₹100cr</span><span class="desc">brand voice guide established</span></div>
-            <div class="stat-pair"><span class="num">Start-up → scale</span><span class="desc">social content built for reach and engagement</span></div>
-          </div>
-        </div>
-
-        <div class="role">
-          <div class="role-head">
-            <p class="co">Freelance &amp; Consulting</p>
-            <p class="title-dates">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
-          </div>
-          <p class="narrative">Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
-          <div class="stat-pairs">
-            <div class="stat-pair"><span class="num tabular">6K → 300K+</span><span class="desc">monthly visits grown for one client in 12 months</span></div>
-            <div class="stat-pair"><span class="num tabular">+30% / +80%</span><span class="desc">engagement and organic reach lifted via analytics-led content</span></div>
+          <div class="border-r border-b border-line p-6 sm:p-8">
+            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">300K+</p>
+            <p class="mt-3 text-[13px] text-fg2 leading-snug">Monthly visits grown from 6K for one client, in 12 months.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="rip-divider" aria-hidden="true"></div>
+    <section id="work" class="border-b border-line py-20 sm:py-28">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <div class="reveal mb-12">
+          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">I Work</span>
+          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">Selected <span class="text-acc">Cases</span></h2>
+          <p class="mt-4 max-w-xl text-fg2 text-[15px] leading-relaxed">Three chapters where the story met the business result — brand voice, campaign strategy, and growth built on narrative.</p>
+        </div>
 
-    <div id="about" class="reveal">
-      <p class="section-tag">About</p>
-      <h2>The short version</h2>
-      <p class="bio">I strengthen business agenda and brand equity with high-impact messaging, brand voices, and business narratives. From small start-ups to listed companies and the Fortune 500s, I've created content foundations and strategies for 10+ years, for 100+ businesses across sectors, industries, and countries.</p>
-      <p class="bio">To do something more meaningful, I joined renewable energy and climate action in my last role — where I was part of the core brand team and led the new brand voice for a 360-degree rebranding exercise.</p>
-      <blockquote>Every brand has a business case buried inside it. My job is to find it and say it so people believe it.</blockquote>
-    </div>
+        <div class="reveal" data-carousel>
+          <div class="carousel-track flex gap-6 overflow-x-auto" data-track>
+            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
+              <div>
+                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">01 / Corporate Communications</p>
+                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Suzlon Group</h3>
+                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Senior Manager, Content · Sept 2023 — Present</p>
+              </div>
+              <div>
+                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">114%</b> brand value growth</span>
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">₹200cr+</b> campaigns led</span>
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">GWEC · BCG · KPMG</b> agencies collaborated with</span>
+                </div>
+                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
+              </div>
+            </div>
 
-    <div class="rip-divider" aria-hidden="true"></div>
+            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
+              <div>
+                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">02 / Brand Voice, Start-up</p>
+                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Repos Energy</h3>
+                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Associate Lead, Storyteller · Jun — Sept 2023</p>
+              </div>
+              <div>
+                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">~₹100cr</b> brand voice guide established</span>
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">Start-up → Scale</b> social content strategy</span>
+                </div>
+                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
+              </div>
+            </div>
 
-    <div id="skills" class="reveal">
-      <p class="section-tag">Skills</p>
-      <h2>What I bring to the table</h2>
-      <div class="skills-grid">
-        <div class="skill-badge"><span class="icon" style="background:#3D6E9C;">CS</span><span class="label">Content Strategy</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#B5652C;">IC</span><span class="label">Campaign Communication</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#7A5C9E;">PR</span><span class="label">Strategic PR Messaging</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#3F8F6E;">TL</span><span class="label">C-suite Thought Leadership</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#B4485C;">NG</span><span class="label">Narrative &amp; Governance</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#8A8578;">PB</span><span class="label">Project &amp; Budget Oversight</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#3D6E9C;">AV</span><span class="label">Agency / Vendor Mgmt</span></div>
-        <div class="skill-badge"><span class="icon" style="background:#3F8F6E;">SEO</span><span class="label">SEO Content Strategy</span></div>
+            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
+              <div>
+                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">03 / Content &amp; Growth</p>
+                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Freelance &amp; Consulting</h3>
+                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
+              </div>
+              <div>
+                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">6K → 300K+</b> monthly visits in 12 months</span>
+                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">+30% / +80%</b> engagement &amp; organic reach lift</span>
+                </div>
+                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex items-center gap-6">
+            <button type="button" data-prev aria-label="Previous case" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" data-next aria-label="Next case" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <p class="font-display font-bold text-xs tracking-[.1em] text-fg3"><span class="text-acc" data-cur>01</span> / 03</p>
+            <div class="ml-auto flex gap-2" data-dots>
+              <span class="w-[7px] h-[7px] rounded-full bg-acc scale-125 transition-all"></span>
+              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
+              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-panel border-t border-line overflow-hidden" aria-hidden="true">
+      <div class="marquee-track slow">
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Suzlon Group</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Repos Energy</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">GWEC</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">BCG</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">KPMG</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Suzlon Group</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Repos Energy</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">GWEC</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">BCG</span>
+        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">KPMG</span>
       </div>
     </div>
 
-    <div id="qualities" class="reveal">
-      <p class="section-tag" style="margin-top:2.5rem;">How I work</p>
-      <div class="notepad">
-        <ul class="tag-list">
-          <li>Narrative-first thinking</li>
-          <li>Data-informed strategy</li>
-          <li>Cross-functional collaboration</li>
-          <li>C-suite fluency</li>
-          <li>Comfortable in ambiguity</li>
-          <li>Deadline-driven delivery</li>
-        </ul>
+    <section id="history" class="border-b border-line py-20 sm:py-28">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <div class="reveal mb-12">
+          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Timeline</span>
+          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">Work <span class="text-acc">History</span></h2>
+        </div>
+
+        <div class="reveal" data-carousel>
+          <div class="carousel-track flex gap-6 overflow-x-auto" data-track>
+            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
+              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">2023 — Present</p>
+              <p class="font-display font-extrabold uppercase text-lg leading-snug">Senior Manager, Content <span class="block text-acc">Suzlon Group</span></p>
+              <p class="text-[13px] text-fg2 leading-relaxed">Brand voice and corporate communications lead for a USD 8B renewable energy major's 360-degree rebrand.</p>
+            </div>
+            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
+              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">Jun — Sept 2023</p>
+              <p class="font-display font-extrabold uppercase text-lg leading-snug">Associate Lead, Storyteller <span class="block text-acc">Repos Energy</span></p>
+              <p class="text-[13px] text-fg2 leading-relaxed">Built the brand voice guide and social content strategy for a Ratan Tata-backed clean-energy start-up.</p>
+            </div>
+            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
+              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">2014 — 2023</p>
+              <p class="font-display font-extrabold uppercase text-lg leading-snug">Content Marketer &amp; Consultant <span class="block text-acc">Freelance</span></p>
+              <p class="text-[13px] text-fg2 leading-relaxed">Nine years of content and copy for start-ups and Fortune 500 businesses across Asia, the Americas, and Europe.</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex items-center gap-6">
+            <button type="button" data-prev aria-label="Previous role" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" data-next aria-label="Next role" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <p class="font-display font-bold text-xs tracking-[.1em] text-fg3"><span class="text-acc" data-cur>01</span> / 03</p>
+            <div class="ml-auto flex gap-2" data-dots>
+              <span class="w-[7px] h-[7px] rounded-full bg-acc scale-125 transition-all"></span>
+              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
+              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="rip-divider" aria-hidden="true"></div>
-
-    <div id="contact" class="reveal contact-block">
-      <p class="section-tag">Get in touch</p>
-      <h2>Let's build your next brand story.</h2>
-      <p class="bio">Open to senior content and brand communications roles, consulting engagements, and conversations about what a brand's next chapter should sound like.</p>
-      <a class="btn" href="mailto:msimran9096@gmail.com" style="margin-top:1.5rem;">Let's discuss your needs →</a>
-      <div class="contact-links">
-        <a href="mailto:msimran9096@gmail.com"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>msimran9096@gmail.com</a>
-        <a href="tel:+919096104666"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 90961 04666</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.87 3.36 3.66z"/></svg>LinkedIn — Simran Malhotra</a>
-        <p class="loc"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Pune, India</p>
+    <section id="skills" class="border-b border-line py-20 sm:py-28">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <div class="reveal mb-12">
+          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Capabilities</span>
+          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">What I <span class="text-acc">Bring</span></h2>
+        </div>
+        <div class="reveal flex flex-wrap gap-3">
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Content Strategy</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Campaign Communication</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Strategic PR Messaging</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">C-Suite Thought Leadership</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Narrative &amp; Governance</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Project &amp; Budget Oversight</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Agency / Vendor Mgmt</span>
+          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">SEO Content Strategy</span>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="sheet-footer">
-      <span>Simran Malhotra — Strategic Brand Communications &amp; Business Storyteller</span>
-      <span class="script" style="font-size:1.3rem; color: var(--accent);">— S. Malhotra</span>
-    </div>
-
-    <div class="torn-bottom" aria-hidden="true"></div>
-  </div>
-
-  <p class="caption">Scroll for the full story ↑</p>
+    <footer id="contact" class="pt-20 sm:pt-24">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
+        <div class="reveal">
+          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Get In Touch</span>
+          <h2 class="mt-4 font-display font-black uppercase leading-[1.02] tracking-tight text-[clamp(2.4rem,8vw,5.6rem)]">Let's craft<br>the <span class="text-acc">next</span><br>chapter.</h2>
+        </div>
+        <div class="reveal mt-9 flex flex-wrap gap-4 gap-x-10">
+          <a href="mailto:msimran9096@gmail.com" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">msimran9096@gmail.com</a>
+          <a href="tel:+919096104666" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">+91 90961 04666</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">LinkedIn — Simran Malhotra</a>
+          <span class="font-display font-bold text-[15px] text-fg3">Pune, India</span>
+        </div>
+      </div>
+      <div class="mt-16 px-5 sm:px-8 lg:px-16 py-6 border-t border-line flex flex-wrap items-center justify-between gap-3 text-xs text-fg3 tracking-wide">
+        <span>© 2026 Simran Malhotra. All rights reserved.</span>
+        <span><a href="#work" class="hover:text-acc">Work</a> · <a href="#history" class="hover:text-acc">History</a> · <a href="#skills" class="hover:text-acc">Skills</a> · <a href="#contact" class="hover:text-acc">Contact</a></span>
+      </div>
+    </footer>
+  </main>
 
   <script>
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
@@ -770,6 +353,74 @@
     } else {
       document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
     }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var dot = document.querySelector('.cursor-dot');
+      var ring = document.querySelector('.cursor-ring');
+      var rx = 0, ry = 0, mx = 0, my = 0;
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      });
+      (function loop() {
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () { ring.classList.add('is-active'); });
+        el.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
+      });
+    }
+
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      var track = carousel.querySelector('[data-track]');
+      var slides = Array.prototype.slice.call(track.children);
+      var prevBtn = carousel.querySelector('[data-prev]');
+      var nextBtn = carousel.querySelector('[data-next]');
+      var curEl = carousel.querySelector('[data-cur]');
+      var dots = Array.prototype.slice.call(carousel.querySelectorAll('[data-dots] span'));
+      var active = 0;
+
+      function setActive(i) {
+        active = Math.max(0, Math.min(slides.length - 1, i));
+        if (curEl) curEl.textContent = String(active + 1).padStart(2, '0');
+        dots.forEach(function (d, di) {
+          d.classList.toggle('bg-acc', di === active);
+          d.classList.toggle('scale-125', di === active);
+          d.classList.toggle('bg-fg4', di !== active);
+        });
+      }
+
+      function goTo(i) {
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        var slide = slides[i];
+        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        setActive(i);
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function () { goTo(active - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { goTo(active + 1); });
+      dots.forEach(function (d, di) { d.addEventListener('click', function () { goTo(di); }); });
+
+      var scrollTimer;
+      track.addEventListener('scroll', function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var pos = track.scrollLeft + track.offsetWidth / 2;
+          var nearest = 0, best = Infinity;
+          slides.forEach(function (s, si) {
+            var mid = s.offsetLeft - track.offsetLeft + s.offsetWidth / 2;
+            var d = Math.abs(mid - pos);
+            if (d < best) { best = d; nearest = si; }
+          });
+          setActive(nearest);
+        }, 100);
+      }, { passive: true });
+
+      setActive(0);
+    });
   </script>
 
 </body>
