@@ -3,425 +3,494 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simran Malhotra — Brand Strategy &amp; Content Direction</title>
+<title>Style Guide — Simran Malhotra</title>
+<!--
+  DIRECTION CONTRACT
+  THESIS: The site is Simran's own brand-voice style guide made visible — the
+  format she sells, applied to herself — refusing the generic personal-
+  portfolio grid.
+  OWN-WORLD: paper #F3F1EC ground, ink #17181A text, editorial red #C81E3A
+  strike marks, kept-green #2F7A4D check marks; IBM Plex Serif rule headers,
+  IBM Plex Sans body/UI; numbered RULE entries with struck/kept pairs.
+  STORY: A hiring manager sees, rule by rule, that she edits vague brand
+  language into precise, provable claims — then reads the proof (case
+  studies, stats, clients) as the "kept" column of her own methodology.
+  FIRST VIEWPORT: A style-guide cover — "STYLE GUIDE" kicker, "SIMRAN
+  MALHOTRA" title, RULE 00 auto-editing a vague line into her real
+  positioning without a click.
+  FORM: Brand Tone-of-Voice Guide — user-pinned choice over the dice
+  assignment (keynote/stage-deck, index 7); seed key f786b7d6.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with
+  the finish review, the verdict, DESIGN.md, and every shipping raster
+  carrying its provenance.
+-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          ink: '#000000',
-          panel: '#0d0d0d',
-          acc: '#F5C518',
-          fg2: '#888888',
-          fg3: '#555555',
-          fg4: '#333333',
-          fg5: '#222222',
-          line: '#1a1a1a',
-        },
-        fontFamily: {
-          display: ['Montserrat', 'Helvetica Neue', 'Arial', 'sans-serif'],
-          body: ['DM Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        },
-      },
-    },
-  };
-</script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  ::selection { background: #F5C518; color: #000000; }
+  :root{
+    --paper:#F3F1EC;
+    --paper-2:#EAE6DC;
+    --ink:#17181A;
+    --ink-soft:#4E4B45;
+    --ink-faint:#67635A;
+    --rule:#D8D3C6;
+    --red:#B01E30;
+    --green:#2F6B45;
+    --serif:'IBM Plex Serif', Georgia, serif;
+    --sans:'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--red); color:var(--paper);}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+    border-radius:1px;
+  }
+  .wrap{max-width:1140px; margin:0 auto; padding-left:clamp(1.25rem,5vw,4rem); padding-right:clamp(1.25rem,5vw,4rem);}
 
-  @media (hover:hover) and (pointer:fine) {
-    body { cursor: none; }
-    .cursor-dot, .cursor-ring { position: fixed; top:0; left:0; pointer-events:none; z-index: 9999; transform: translate(-50%,-50%); }
-    .cursor-dot { width: 6px; height: 6px; background: #F5C518; border-radius: 50%; }
-    .cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(245,197,24,.35); border-radius: 50%; transition: width .2s cubic-bezier(.16,1,.3,1), height .2s cubic-bezier(.16,1,.3,1), border-color .2s ease; }
-    .cursor-ring.is-active { width: 54px; height: 54px; border-color: #F5C518; }
+  /* ---------- NAV ---------- */
+  header.nav{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--rule);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0; flex-wrap:wrap; gap:.75rem 1.5rem;}
+  .nav-mark{font-family:var(--serif); font-weight:600; font-size:.95rem; letter-spacing:.02em; text-decoration:none; display:flex; align-items:baseline; gap:.5rem;}
+  .nav-mark .ed{font-family:var(--sans); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); font-weight:600;}
+  .nav-links{display:flex; align-items:center; gap:clamp(1rem,2.5vw,2rem); list-style:none; margin:0; padding:0; font-size:.85rem;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .15s ease, color .15s ease;}
+  .nav-links a:hover{color:var(--ink); border-color:var(--red);}
+  .nav-links a.cta{color:var(--paper); background:var(--ink); padding:.55rem 1.1rem; border-radius:2px;}
+  .nav-links a.cta:hover{background:var(--red); border-color:transparent;}
+  @media (max-width:640px){.nav-links{gap:.9rem 1.1rem; font-size:.8rem;} .nav-links a.cta{padding:.5rem .85rem; width:100%; text-align:center;}}
+
+  /* ---------- COVER / HERO ---------- */
+  .cover{padding-top:clamp(3rem,7vw,5rem); padding-bottom:clamp(2.5rem,6vw,4rem);}
+  .stamp{display:inline-flex; align-items:center; gap:.5rem; font-family:var(--sans); font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); border:1px solid var(--rule); padding:.4rem .75rem; border-radius:2px; margin-top:1.25rem;}
+  .stamp .dot{width:6px; height:6px; border-radius:50%; background:var(--red); flex:none;}
+  h1.title{font-family:var(--serif); font-weight:600; font-size:clamp(2.6rem,8vw,5.6rem); line-height:.98; letter-spacing:-.01em; margin:0;}
+  .edition-line{margin:.9rem 0 0; font-size:clamp(.95rem,1.6vw,1.1rem); color:var(--ink-soft); font-weight:500;}
+  .edition-line .dot{color:var(--red); padding:0 .4em;}
+
+  .rule00{margin-top:clamp(2.5rem,5vw,3.5rem); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:1.75rem 0;}
+  .rule00-label{font-family:var(--sans); font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1rem;}
+  .edit-line{font-family:var(--serif); font-size:clamp(1.15rem,2.6vw,1.6rem); line-height:1.42; max-width:46ch; min-height:2.9em;}
+  .edit-line .struck{position:relative; color:var(--ink-soft);}
+  .edit-line .struck::after{content:''; position:absolute; left:-2%; right:-2%; top:52%; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; animation:strike .6s ease forwards; animation-delay:.9s;}
+  .edit-line .kept{color:var(--ink); font-weight:500; opacity:0; animation:fadein .5s ease forwards; animation-delay:1.5s;}
+  @keyframes strike{to{transform:scaleX(1);}}
+  @keyframes fadein{to{opacity:1;}}
+  @media (prefers-reduced-motion: reduce){
+    .edit-line .struck::after{animation:none; transform:scaleX(1);}
+    .edit-line .kept{animation:none; opacity:1;}
   }
 
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
-  .reveal.is-visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  .hero-cta-row{display:flex; flex-wrap:wrap; gap:1rem; margin-top:clamp(2rem,4vw,2.75rem);}
+  .btn{font-family:var(--sans); font-weight:600; font-size:.9rem; text-decoration:none; padding:.85rem 1.6rem; border-radius:2px; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; letter-spacing:.01em;}
+  .btn-primary{background:var(--ink); color:var(--paper); border:1px solid var(--ink);}
+  .btn-primary:hover{background:var(--red); border-color:var(--red);}
+  .btn-secondary{background:transparent; color:var(--ink); border:1px solid var(--ink-soft);}
+  .btn-secondary:hover{border-color:var(--red); color:var(--red);}
 
-  .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
-  .marquee-track.slow { animation-duration: 40s; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+  /* ---------- SECTIONS ---------- */
+  .section{padding:clamp(3rem,6vw,5rem) 0; border-top:1px solid var(--rule);}
+  .section-head{display:flex; align-items:flex-start; gap:1.25rem; margin-bottom:clamp(2rem,4vw,2.75rem);}
+  .rule-num{font-family:var(--serif); font-weight:600; font-size:1.05rem; color:var(--paper); background:var(--ink); width:2.4rem; height:2.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none;}
+  .section-head h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3.4vw,2.1rem); margin:0 0 .35rem; line-height:1.15;}
+  .section-sub{margin:0; font-size:.92rem; color:var(--ink-soft); max-width:56ch;}
 
-  .carousel-track { scrollbar-width: none; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  .carousel-track::-webkit-scrollbar { display: none; }
-  .snap-start { scroll-snap-align: start; }
+  /* rule row: struck vague vs kept precise */
+  .rulebook{display:flex; flex-direction:column;}
+  .row{padding:clamp(1.5rem,3vw,2rem) 0; border-top:1px solid var(--rule); display:grid; grid-template-columns:1fr; gap:1rem 2.5rem; opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .row.is-visible{opacity:1; transform:none;}
+  .rulebook .row:last-child{border-bottom:1px solid var(--rule);}
+  @media (min-width:840px){.row{grid-template-columns:.85fr 1.15fr;}}
+  .row-vague{display:flex; align-items:flex-start; gap:.6rem; font-size:.95rem; color:var(--ink-faint);}
+  .row-vague svg{flex:none; margin-top:.3em; color:var(--red);}
+  .row-vague .txt{position:relative;}
+  .row-vague .txt::after{content:''; position:absolute; left:-3%; right:-3%; top:52%; height:1.5px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .55s ease .15s;}
+  .row.is-visible .row-vague .txt::after{transform:scaleX(1);}
+  .row-kept{}
+  .row-kept-head{display:flex; align-items:baseline; gap:.6rem; margin-bottom:.5rem;}
+  .row-kept-head svg{flex:none; color:var(--green);}
+  .row-kept-org{font-family:var(--serif); font-weight:600; font-size:clamp(1.15rem,2.4vw,1.5rem);}
+  .row-kept-meta{font-size:.82rem; color:var(--ink-faint); margin:.15rem 0 .75rem;}
+  .row-kept p{font-size:.98rem; color:var(--ink-soft); max-width:62ch; margin:0 0 1rem;}
+  .row-tags{display:flex; flex-wrap:wrap; gap:.5rem .6rem; list-style:none; padding:0; margin:0;}
+  .row-tags li{font-size:.8rem; border:1px solid var(--ink-soft); padding:.35rem .7rem; border-radius:999px; color:var(--ink-soft);}
 
-  .hero-portrait img { filter: grayscale(100%) contrast(1.08) brightness(.92); mix-blend-mode: luminosity; }
+  /* stat rules */
+  .stat-num{font-family:var(--serif); font-weight:600; font-size:clamp(2.1rem,5vw,3.2rem); line-height:1; letter-spacing:-.01em;}
+
+  /* trusted-by / cited-in */
+  .cited-list{display:flex; flex-direction:column;}
+  .cited-row{display:grid; grid-template-columns:auto 1fr; gap:.3rem 1.25rem; padding:1.15rem 0; border-top:1px solid var(--rule); align-items:center;}
+  .cited-list .cited-row:last-child{border-bottom:1px solid var(--rule);}
+  .cited-logo{grid-row:1 / 3; width:44px; height:44px; object-fit:contain; filter:grayscale(1) contrast(1.15); opacity:.85;}
+  @media (min-width:720px){.cited-row{grid-template-columns:44px 200px 1fr; align-items:center;} .cited-logo{grid-row:auto;}}
+  .cited-name{font-family:var(--serif); font-weight:600; font-size:clamp(1.05rem,2vw,1.3rem);}
+  .cited-result{font-size:.88rem; color:var(--ink-soft); grid-column:2 / -1;}
+  @media (min-width:720px){.cited-result{grid-column:auto;}}
+
+  /* glossary */
+  .glossary{list-style:none; margin:0; padding:0; columns:1; column-gap:3rem;}
+  @media (min-width:760px){.glossary{columns:2;}}
+  .gloss-item{break-inside:avoid; padding:1.1rem 0; border-top:1px solid var(--rule);}
+  .gloss-term{font-family:var(--serif); font-weight:600; font-size:1.05rem;}
+  .gloss-def{font-size:.85rem; color:var(--ink-soft); margin:.3rem 0 0;}
+
+  /* colophon / contact */
+  .author-note{display:flex; align-items:center; gap:1rem; margin-bottom:2rem;}
+  .author-photo{width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:top; flex:none; filter:grayscale(.3) contrast(1.05);}
+  .author-bio{font-size:.85rem; color:var(--ink-soft); max-width:44ch; margin:0;}
+  .colophon-title{font-family:var(--serif); font-weight:600; font-size:clamp(2rem,5.5vw,3.4rem); line-height:1.08; max-width:14ch; margin:0 0 2.25rem;}
+  .colophon-grid{display:grid; grid-template-columns:1fr; gap:1.4rem 3rem;}
+  @media (min-width:640px){.colophon-grid{grid-template-columns:repeat(2,1fr);}}
+  .col-label{font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 .4rem;}
+  .col-value{font-family:var(--serif); font-weight:600; font-size:clamp(1.05rem,1.8vw,1.3rem); text-decoration:none; border-bottom:1.5px solid var(--rule); padding-bottom:2px;}
+  a.col-value:hover{border-color:var(--red); color:var(--red);}
+
+  footer.imprint{border-top:1px solid var(--rule); padding:1.75rem 0; font-size:.78rem; color:var(--ink-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:.75rem;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .row{opacity:1; transform:none; transition:none;}
+    .row-vague .txt::after{transform:scaleX(1); transition:none;}
+  }
 </style>
 </head>
-<body class="bg-ink text-white font-body leading-relaxed">
+<body>
 
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-mark">Simran Malhotra <span class="ed">Style Guide</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Cases</a></li>
+      <li><a href="#skills">Glossary</a></li>
+      <li><a href="#contact">Colophon</a></li>
+      <li><a class="cta" href="mailto:msimran9096@gmail.com">Say Hello</a></li>
+    </ul>
+  </div>
+</header>
 
-  <header class="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center justify-between px-5 sm:px-8 lg:px-16 bg-black/75 backdrop-blur-md border-b border-line">
-    <a href="#top" class="flex items-center gap-2 font-display font-extrabold tracking-wide text-sm uppercase">
-      <span class="w-[9px] h-[9px] bg-acc rotate-45 inline-block flex-shrink-0"></span>Simran
-    </a>
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="#work" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Work</a>
-      <a href="#history" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">History</a>
-      <a href="#skills" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Skills</a>
-      <a href="#contact" class="text-[11px] font-bold tracking-[.14em] uppercase text-fg2 hover:text-acc transition-colors">Contact</a>
-    </nav>
-    <a href="mailto:msimran9096@gmail.com" class="inline-flex items-center gap-2 bg-acc text-ink font-display font-extrabold text-[11px] tracking-[.1em] uppercase px-4 py-2.5 hover:bg-[#ffd23f] hover:-translate-y-0.5 transition-all">Let's Talk</a>
-  </header>
+<main id="top">
 
-  <main id="top">
-    <section class="relative pt-[136px] pb-16 sm:pb-20 border-b border-line overflow-hidden">
-      <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(60% 45% at 82% 12%, rgba(245,197,24,.08), transparent 60%), radial-gradient(40% 30% at 10% 90%, rgba(245,197,24,.05), transparent 60%);"></div>
+  <!-- COVER -->
+  <section class="cover">
+    <div class="wrap">
+      <h1 class="title">Simran<br/>Malhotra</h1>
+      <p class="edition-line">Brand Strategy<span class="dot">·</span>Content Direction<span class="dot">·</span>Storyteller</p>
+      <span class="stamp"><span class="dot"></span>Style Guide — Internal Reference</span>
 
-      <div class="relative max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Brand Strategy · Content Direction · Storyteller</span>
-
-        <h1 class="font-display font-black uppercase leading-[.92] tracking-tight text-[clamp(3rem,12vw,8.2rem)] mt-2">
-          <span class="block text-[.28em] font-bold text-fg2 tracking-[.08em] mb-2">Simran</span>
-          <span class="block">Malh<em class="not-italic text-acc">o</em>tra</span>
-        </h1>
-
-        <div class="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 font-display font-bold text-xs tracking-[.12em] uppercase text-fg2">
-          <span>Content Strategy</span><span class="text-acc">◆</span>
-          <span>Brand Voice</span><span class="text-acc">◆</span>
-          <span>Business Storytelling</span>
-        </div>
-
-        <div class="reveal mt-10 grid grid-cols-1 lg:grid-cols-[1.3fr_.9fr] gap-10 items-start">
-          <div>
-            <p class="text-base sm:text-lg leading-relaxed text-[#cfcfcf] max-w-xl">Strategic brand communications and content strategy for 10+ years — from early-stage start-ups to Fortune 500s. I build the voice, the messaging, and the story that make a business case land.</p>
-            <p class="mt-4 text-sm leading-relaxed text-fg2 max-w-xl">I strengthen business agenda and brand equity with high-impact messaging, brand voices, and business narratives. From small start-ups to listed companies and the Fortune 500s, I've created content foundations and strategies for 10+ years, for 100+ businesses across sectors, industries, and countries.</p>
-            <p class="mt-3 text-sm leading-relaxed text-fg2 max-w-xl">To do something more meaningful, I joined renewable energy and climate action in my last role — where I was part of the core brand team and led the new brand voice for a 360-degree rebranding exercise.</p>
-            <blockquote class="mt-6 border-l-[3px] border-acc bg-panel px-6 py-4 font-display font-bold text-base leading-snug max-w-lg">"Every brand has a business case buried inside it. My job is to find it and say it so people believe it."</blockquote>
-            <div class="mt-8 flex flex-wrap items-center gap-4">
-              <a href="mailto:msimran9096@gmail.com" class="inline-flex items-center gap-2 bg-acc text-ink font-display font-extrabold text-xs tracking-[.1em] uppercase px-7 py-4 hover:bg-[#ffd23f] hover:-translate-y-1 transition-all">Download CV ↓</a>
-              <a href="#work" class="inline-flex items-center gap-2 border border-fg4 text-white font-display font-bold text-xs tracking-[.1em] uppercase px-7 py-4 hover:border-acc hover:text-acc hover:-translate-y-1 transition-all">View Work</a>
-            </div>
-          </div>
-
-          <div class="relative flex justify-center lg:justify-end lg:sticky lg:top-24">
-            <svg viewBox="0 0 24 24" class="absolute -top-5 -right-3 w-6 h-6 text-fg4 pointer-events-none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.5"/></svg>
-            <svg viewBox="0 0 24 24" class="absolute -bottom-4 -left-5 w-8 h-8 text-fg4 pointer-events-none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3" fill="none"/></svg>
-            <div class="hero-portrait relative w-full max-w-xs aspect-[3/4] bg-panel overflow-hidden border border-line">
-              <img src="assets/simran.png" alt="Simran Malhotra" class="w-full h-full object-cover object-top" />
-              <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(245,197,24,0) 55%, rgba(0,0,0,.75) 100%);"></div>
-              <span class="absolute left-4 bottom-4 z-10 font-display font-extrabold text-[11px] tracking-[.12em] uppercase text-acc">Currently — Suzlon Group</span>
-            </div>
-          </div>
-        </div>
+      <div class="rule00">
+        <p class="rule00-label">Rule 00 — Say the Precise Thing, Not the Impressive-Sounding Thing</p>
+        <p class="edit-line" aria-live="off">
+          <span class="struck">Strategic storyteller with a passion for brands.</span><br/>
+          <span class="kept">10+ years turning brand strategy into 114% growth, ₹200cr+ in campaigns, and a voice three companies now speak in.</span>
+        </p>
       </div>
-    </section>
 
-    <div class="bg-acc border-b border-line overflow-hidden" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Content Strategy</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Brand Voice</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Campaign Communication</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">C-Suite Thought Leadership</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">SEO Strategy</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Narrative Governance</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Content Strategy</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Brand Voice</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Campaign Communication</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">C-Suite Thought Leadership</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">SEO Strategy</span>
-        <span class="inline-flex items-center font-display font-extrabold text-[13px] tracking-[.1em] uppercase text-ink px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Narrative Governance</span>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="mailto:msimran9096@gmail.com?subject=CV%20Request">Download CV</a>
+        <a class="btn btn-secondary" href="#work">Read the Case Studies</a>
       </div>
     </div>
+  </section>
 
-    <section id="numbers" class="border-b border-line py-16 sm:py-20">
-      <div class="reveal max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Credentials</span>
-        <h2 class="mt-3 mb-10 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">By The <span class="text-acc">Numbers</span></h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line">
-          <div class="border-r border-b border-line p-6 sm:p-8">
-            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">10+</p>
-            <p class="mt-3 text-[13px] text-fg2 leading-snug">Years of experience in brand strategy and content leadership.</p>
+  <!-- RULE 01: STATS -->
+  <section class="section" aria-label="Career highlights">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="rule-num">01</span>
+        <div>
+          <h2>Say the Number, Not the Adjective</h2>
+          <p class="section-sub">Every claim on this page resolves to a figure someone can check.</p>
+        </div>
+      </div>
+      <div class="rulebook" data-reveal>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Extensive industry experience."</span>
           </div>
-          <div class="border-r border-b border-line p-6 sm:p-8">
-            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">114%</p>
-            <p class="mt-3 text-[13px] text-fg2 leading-snug">Brand value growth at Suzlon Group — ₹1,650cr to ₹4,026cr.</p>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="stat-num">10+</span>
+            </div>
+            <p>Years of experience in brand communications and content strategy, for 100+ businesses across sectors, industries, and countries.</p>
           </div>
-          <div class="border-r border-b border-line p-6 sm:p-8">
-            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">₹200cr+</p>
-            <p class="mt-3 text-[13px] text-fg2 leading-snug">In brand campaigns led, for a top-5 wind energy company.</p>
+        </div>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Significant brand value growth."</span>
           </div>
-          <div class="border-r border-b border-line p-6 sm:p-8">
-            <p class="font-display font-black text-acc leading-none text-[clamp(2rem,5vw,3.2rem)]">300K+</p>
-            <p class="mt-3 text-[13px] text-fg2 leading-snug">Monthly visits grown from 6K for one client, in 12 months.</p>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="stat-num">114%</span>
+            </div>
+            <p>Brand value growth at Suzlon Group, ₹1,650cr to ₹4,026cr, over the course of the engagement.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Led high-value campaigns."</span>
+          </div>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="stat-num">₹200cr+</span>
+            </div>
+            <p>In brand campaigns led, for a top-5 wind energy company.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Grew traffic substantially."</span>
+          </div>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="stat-num">300K+</span>
+            </div>
+            <p>Monthly visits grown from 6K, in twelve months, for one client.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="work" class="border-b border-line py-20 sm:py-28">
-      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <div class="reveal mb-12">
-          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">I Work</span>
-          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">Selected <span class="text-acc">Cases</span></h2>
-          <p class="mt-4 max-w-xl text-fg2 text-[15px] leading-relaxed">Three chapters where the story met the business result — brand voice, campaign strategy, and growth built on narrative.</p>
-        </div>
-
-        <div class="reveal" data-carousel>
-          <div class="carousel-track flex gap-6 overflow-x-auto" data-track>
-            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
-              <div>
-                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">01 / Corporate Communications</p>
-                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Suzlon Group</h3>
-                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Senior Manager, Content · Sept 2023 — Present</p>
-              </div>
-              <div>
-                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
-                <div class="mt-6 flex flex-wrap gap-2">
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">114%</b> brand value growth</span>
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">₹200cr+</b> campaigns led</span>
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">GWEC · BCG · KPMG</b> agencies collaborated with</span>
-                </div>
-                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
-              </div>
-            </div>
-
-            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
-              <div>
-                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">02 / Brand Voice, Start-up</p>
-                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Repos Energy</h3>
-                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Associate Lead, Storyteller · Jun — Sept 2023</p>
-              </div>
-              <div>
-                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
-                <div class="mt-6 flex flex-wrap gap-2">
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">~₹100cr</b> brand voice guide established</span>
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">Start-up → Scale</b> social content strategy</span>
-                </div>
-                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
-              </div>
-            </div>
-
-            <div class="case snap-start flex-none w-full grid grid-cols-1 lg:grid-cols-[.9fr_1.4fr] gap-6 lg:gap-12 border border-line bg-panel p-6 sm:p-10">
-              <div>
-                <p class="font-display font-extrabold text-xs tracking-[.12em] text-fg3">03 / Content &amp; Growth</p>
-                <h3 class="mt-2 font-display font-extrabold uppercase tracking-tight text-[clamp(1.8rem,4vw,2.6rem)]">Freelance &amp; Consulting</h3>
-                <p class="mt-1 font-display text-xs tracking-[.1em] uppercase text-acc font-bold">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
-              </div>
-              <div>
-                <p class="text-[15px] text-[#c7c7c7] leading-relaxed max-w-xl">Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
-                <div class="mt-6 flex flex-wrap gap-2">
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">6K → 300K+</b> monthly visits in 12 months</span>
-                  <span class="inline-flex items-baseline gap-1 border border-line bg-black px-3.5 py-2 text-[13px] text-fg2"><b class="font-display text-white font-extrabold">+30% / +80%</b> engagement &amp; organic reach lift</span>
-                </div>
-                <a href="mailto:msimran9096@gmail.com" class="mt-8 inline-flex items-center gap-2 font-display font-extrabold text-xs tracking-[.1em] uppercase border-b border-fg4 pb-1 hover:text-acc hover:border-acc hover:gap-3 transition-all">Discuss this case →</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8 flex items-center gap-6">
-            <button type="button" data-prev aria-label="Previous case" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button type="button" data-next aria-label="Next case" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-            <p class="font-display font-bold text-xs tracking-[.1em] text-fg3"><span class="text-acc" data-cur>01</span> / 03</p>
-            <div class="ml-auto flex gap-2" data-dots>
-              <span class="w-[7px] h-[7px] rounded-full bg-acc scale-125 transition-all"></span>
-              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
-              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
-            </div>
-          </div>
+  <!-- RULE 02: CASE STUDIES -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="rule-num">02</span>
+        <div>
+          <h2>Prove It, Don't Promise It</h2>
+          <p class="section-sub">A generic claim struck through; the actual case kept underneath.</p>
         </div>
       </div>
-    </section>
-
-    <div class="bg-panel border-t border-line overflow-hidden" aria-hidden="true">
-      <div class="marquee-track slow">
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Suzlon Group</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Repos Energy</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">GWEC</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">BCG</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">KPMG</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Suzlon Group</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">Repos Energy</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">GWEC</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">BCG</span>
-        <span class="inline-flex items-center font-display font-bold text-[13px] tracking-[.1em] uppercase text-fg2 px-6 py-3 whitespace-nowrap after:content-['◆'] after:ml-6 after:text-[10px] after:opacity-55">KPMG</span>
+      <div class="rulebook" data-reveal>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Helped shape brand communications for a major energy company."</span>
+          </div>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="row-kept-org">Suzlon Group</span>
+            </div>
+            <p class="row-kept-meta">Senior Manager, Content · Sept 2023 — Present</p>
+            <p>Cracked the new brand voice for a 30-year-old, USD 8B global company as part of its 360-degree brand transformation — then put that voice to work across campaigns, stakeholder briefings, and C-suite thought leadership.</p>
+            <ul class="row-tags">
+              <li>114% brand value growth</li>
+              <li>₹200cr+ campaigns led</li>
+              <li>GWEC / BCG / KPMG collaboration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Built brand voice guidelines for a fast-growing start-up."</span>
+          </div>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="row-kept-org">Repos Energy</span>
+            </div>
+            <p class="row-kept-meta">Associate Lead Storyteller · Jun — Sept 2023</p>
+            <p>Established the brand voice guide for a Ratan Tata-backed start-up from the ground up, grounding it in participatory research rather than assumption — then carried that voice into social content built for virality and engagement.</p>
+            <ul class="row-tags">
+              <li>~₹100cr brand voice guide</li>
+              <li>Start-up → scale social strategy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-vague">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="txt">"Years of freelance content and copywriting experience."</span>
+          </div>
+          <div class="row-kept">
+            <div class="row-kept-head">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="row-kept-org">Freelance &amp; Consulting</span>
+            </div>
+            <p class="row-kept-meta">Content Marketer, Copywriter &amp; Consultant · Apr 2014 — Sept 2023</p>
+            <p>Nine years developing content and copy for start-ups, award-winning brands, and a Fortune 500 business across Asia, the Americas, and Europe — cracking SEO and content strategies that turned traffic into recurring revenue.</p>
+            <ul class="row-tags">
+              <li>6K → 300K+ monthly visits in 12 months</li>
+              <li>+30% engagement lift</li>
+              <li>+80% organic reach lift</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <section id="history" class="border-b border-line py-20 sm:py-28">
-      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <div class="reveal mb-12">
-          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Timeline</span>
-          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">Work <span class="text-acc">History</span></h2>
-        </div>
-
-        <div class="reveal" data-carousel>
-          <div class="carousel-track flex gap-6 overflow-x-auto" data-track>
-            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
-              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">2023 — Present</p>
-              <p class="font-display font-extrabold uppercase text-lg leading-snug">Senior Manager, Content <span class="block text-acc">Suzlon Group</span></p>
-              <p class="text-[13px] text-fg2 leading-relaxed">Brand voice and corporate communications lead for a USD 8B renewable energy major's 360-degree rebrand.</p>
-            </div>
-            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
-              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">Jun — Sept 2023</p>
-              <p class="font-display font-extrabold uppercase text-lg leading-snug">Associate Lead, Storyteller <span class="block text-acc">Repos Energy</span></p>
-              <p class="text-[13px] text-fg2 leading-relaxed">Built the brand voice guide and social content strategy for a Ratan Tata-backed clean-energy start-up.</p>
-            </div>
-            <div class="snap-start flex-none w-[min(22rem,82vw)] border border-line bg-panel p-8 flex flex-col gap-3 hover:border-fg4 transition-colors">
-              <p class="font-display font-bold text-xs tracking-[.1em] uppercase text-fg3">2014 — 2023</p>
-              <p class="font-display font-extrabold uppercase text-lg leading-snug">Content Marketer &amp; Consultant <span class="block text-acc">Freelance</span></p>
-              <p class="text-[13px] text-fg2 leading-relaxed">Nine years of content and copy for start-ups and Fortune 500 businesses across Asia, the Americas, and Europe.</p>
-            </div>
-          </div>
-
-          <div class="mt-8 flex items-center gap-6">
-            <button type="button" data-prev aria-label="Previous role" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button type="button" data-next aria-label="Next role" class="w-12 h-12 flex-none border border-fg4 flex items-center justify-center hover:border-acc hover:text-acc transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-            <p class="font-display font-bold text-xs tracking-[.1em] text-fg3"><span class="text-acc" data-cur>01</span> / 03</p>
-            <div class="ml-auto flex gap-2" data-dots>
-              <span class="w-[7px] h-[7px] rounded-full bg-acc scale-125 transition-all"></span>
-              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
-              <span class="w-[7px] h-[7px] rounded-full bg-fg4 transition-all"></span>
-            </div>
-          </div>
+  <!-- RULE 03: TRUSTED BY / CITED IN -->
+  <section class="section" aria-label="Clients">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="rule-num">03</span>
+        <div>
+          <h2>Name the Client, Not the Category</h2>
+          <p class="section-sub">"Worked with leading organizations" tells a reader nothing. This does.</p>
         </div>
       </div>
-    </section>
-
-    <section id="skills" class="border-b border-line py-20 sm:py-28">
-      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <div class="reveal mb-12">
-          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Capabilities</span>
-          <h2 class="mt-3 font-display font-black uppercase leading-none tracking-tight text-[clamp(2rem,5vw,3.4rem)]">What I <span class="text-acc">Bring</span></h2>
+      <div class="cited-list">
+        <div class="cited-row">
+          <img class="cited-logo" src="assets/logos/suzlon.svg" alt="Suzlon Group" />
+          <span class="cited-name">Suzlon Group</span>
+          <span class="cited-result">Brand transformation partner: 114% brand value growth over the engagement.</span>
         </div>
-        <div class="reveal flex flex-wrap gap-3">
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Content Strategy</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Campaign Communication</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Strategic PR Messaging</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">C-Suite Thought Leadership</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Narrative &amp; Governance</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Project &amp; Budget Oversight</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">Agency / Vendor Mgmt</span>
-          <span class="inline-flex items-center gap-2 border border-line px-4 py-3 font-display font-bold text-xs uppercase text-fg2 hover:border-acc hover:text-white transition-colors before:content-[''] before:w-1.5 before:h-1.5 before:bg-acc">SEO Content Strategy</span>
+        <div class="cited-row">
+          <img class="cited-logo" src="assets/logos/repos-energy.png" alt="Repos Energy" />
+          <span class="cited-name">Repos Energy</span>
+          <span class="cited-result">Built the founding brand voice guide, backed by Ratan Tata.</span>
         </div>
-      </div>
-    </section>
-
-    <footer id="contact" class="pt-20 sm:pt-24">
-      <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16">
-        <div class="reveal">
-          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[.22em] uppercase text-acc before:content-[''] before:w-[7px] before:h-[7px] before:bg-acc before:rounded-full">Get In Touch</span>
-          <h2 class="mt-4 font-display font-black uppercase leading-[1.02] tracking-tight text-[clamp(2.4rem,8vw,5.6rem)]">Let's craft<br>the <span class="text-acc">next</span><br>chapter.</h2>
+        <div class="cited-row">
+          <img class="cited-logo" src="assets/logos/gwec.svg" alt="GWEC" />
+          <span class="cited-name">GWEC</span>
+          <span class="cited-result">Collaborated on global wind energy thought leadership.</span>
         </div>
-        <div class="reveal mt-9 flex flex-wrap gap-4 gap-x-10">
-          <a href="mailto:msimran9096@gmail.com" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">msimran9096@gmail.com</a>
-          <a href="tel:+919096104666" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">+91 90961 04666</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="font-display font-bold text-[15px] border-b border-fg4 pb-1 hover:text-acc hover:border-acc transition-colors">LinkedIn — Simran Malhotra</a>
-          <span class="font-display font-bold text-[15px] text-fg3">Pune, India</span>
+        <div class="cited-row">
+          <img class="cited-logo" src="assets/logos/bcg.svg" alt="BCG" />
+          <span class="cited-name">BCG</span>
+          <span class="cited-result">Joint messaging work on strategic brand narratives.</span>
+        </div>
+        <div class="cited-row">
+          <img class="cited-logo" src="assets/logos/kpmg.svg" alt="KPMG" />
+          <span class="cited-name">KPMG</span>
+          <span class="cited-result">Partnered on stakeholder and governance communications.</span>
         </div>
       </div>
-      <div class="mt-16 px-5 sm:px-8 lg:px-16 py-6 border-t border-line flex flex-wrap items-center justify-between gap-3 text-xs text-fg3 tracking-wide">
-        <span>© 2026 Simran Malhotra. All rights reserved.</span>
-        <span><a href="#work" class="hover:text-acc">Work</a> · <a href="#history" class="hover:text-acc">History</a> · <a href="#skills" class="hover:text-acc">Skills</a> · <a href="#contact" class="hover:text-acc">Contact</a></span>
+    </div>
+  </section>
+
+  <!-- RULE 04: GLOSSARY / CAPABILITIES -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="rule-num">04</span>
+        <div>
+          <h2>Every Capability Gets a Verb</h2>
+          <p class="section-sub">A skill list is only useful if it says what you'd actually watch her do.</p>
+        </div>
       </div>
-    </footer>
-  </main>
+      <ul class="glossary">
+        <li class="gloss-item">
+          <p class="gloss-term">Content Strategy</p>
+          <p class="gloss-def">Building the content foundation a brand runs on, before a single word is written.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">Campaign Communication</p>
+          <p class="gloss-def">Turning a business objective into a campaign message that lands with the intended audience.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">Strategic PR Messaging</p>
+          <p class="gloss-def">Shaping what gets said publicly, and how, before a story runs.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">C-Suite Thought Leadership</p>
+          <p class="gloss-def">Writing in a leader's voice, for stages and bylines that carry their name.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">Narrative &amp; Governance</p>
+          <p class="gloss-def">Keeping a brand's story consistent across teams, markets, and time.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">Project &amp; Budget Oversight</p>
+          <p class="gloss-def">Running the content function like a business line, not a favor.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">Agency / Vendor Management</p>
+          <p class="gloss-def">Briefing, directing, and holding external partners to the brand's actual standard.</p>
+        </li>
+        <li class="gloss-item">
+          <p class="gloss-term">SEO Content Strategy</p>
+          <p class="gloss-def">Writing for search without writing like it: the discipline behind the 300K+ traffic number above.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-  <script>
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-    }
+  <!-- COLOPHON / CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="rule-num">05</span>
+        <div>
+          <h2 style="margin-bottom:0;">Colophon</h2>
+        </div>
+      </div>
+      <div class="author-note">
+        <img class="author-photo" src="assets/simran.png" alt="Simran Malhotra" />
+        <p class="author-bio">About the author — 10+ years writing the words brands use to make their case, most recently as part of the core brand team behind a 360-degree rebrand at Suzlon Group.</p>
+      </div>
+      <h3 class="colophon-title">Let's edit the next chapter together.</h3>
+      <div class="colophon-grid">
+        <div>
+          <p class="col-label">Email</p>
+          <a class="col-value" href="mailto:msimran9096@gmail.com">msimran9096@gmail.com</a>
+        </div>
+        <div>
+          <p class="col-label">Phone</p>
+          <a class="col-value" href="tel:+919096104666">+91 90961 04666</a>
+        </div>
+        <div>
+          <p class="col-label">LinkedIn</p>
+          <a class="col-value" href="https://www.linkedin.com/in/simranmalhotra" target="_blank" rel="noopener">Simran Malhotra</a>
+        </div>
+        <div>
+          <p class="col-label">Location</p>
+          <span class="col-value" style="border-bottom-color:transparent;">Pune, India</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      var dot = document.querySelector('.cursor-dot');
-      var ring = document.querySelector('.cursor-ring');
-      var rx = 0, ry = 0, mx = 0, my = 0;
-      window.addEventListener('mousemove', function (e) {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+<footer class="imprint">
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:.75rem; width:100%;">
+    <span>© 2026 Simran Malhotra. Style Guide, current edition.</span>
+    <span><a href="#work" style="text-decoration:none;">Cases</a> · <a href="#skills" style="text-decoration:none;">Glossary</a> · <a href="#contact" style="text-decoration:none;">Colophon</a></span>
+  </div>
+</footer>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
       });
-      (function loop() {
-        rx += (mx - rx) * 0.18;
-        ry += (my - ry) * 0.18;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(loop);
-      })();
-      document.querySelectorAll('a, button').forEach(function (el) {
-        el.addEventListener('mouseenter', function () { ring.classList.add('is-active'); });
-        el.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
-      });
-    }
-
-    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
-      var track = carousel.querySelector('[data-track]');
-      var slides = Array.prototype.slice.call(track.children);
-      var prevBtn = carousel.querySelector('[data-prev]');
-      var nextBtn = carousel.querySelector('[data-next]');
-      var curEl = carousel.querySelector('[data-cur]');
-      var dots = Array.prototype.slice.call(carousel.querySelectorAll('[data-dots] span'));
-      var active = 0;
-
-      function setActive(i) {
-        active = Math.max(0, Math.min(slides.length - 1, i));
-        if (curEl) curEl.textContent = String(active + 1).padStart(2, '0');
-        dots.forEach(function (d, di) {
-          d.classList.toggle('bg-acc', di === active);
-          d.classList.toggle('scale-125', di === active);
-          d.classList.toggle('bg-fg4', di !== active);
-        });
-      }
-
-      function goTo(i) {
-        i = Math.max(0, Math.min(slides.length - 1, i));
-        var slide = slides[i];
-        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-        setActive(i);
-      }
-
-      if (prevBtn) prevBtn.addEventListener('click', function () { goTo(active - 1); });
-      if (nextBtn) nextBtn.addEventListener('click', function () { goTo(active + 1); });
-      dots.forEach(function (d, di) { d.addEventListener('click', function () { goTo(di); }); });
-
-      var scrollTimer;
-      track.addEventListener('scroll', function () {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function () {
-          var pos = track.scrollLeft + track.offsetWidth / 2;
-          var nearest = 0, best = Infinity;
-          slides.forEach(function (s, si) {
-            var mid = s.offsetLeft - track.offsetLeft + s.offsetWidth / 2;
-            var d = Math.abs(mid - pos);
-            if (d < best) { best = d; nearest = si; }
-          });
-          setActive(nearest);
-        }, 100);
-      }, { passive: true });
-
-      setActive(0);
+    }, { threshold: 0.15 });
+    document.querySelectorAll('[data-reveal] .row').forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4) * 90 + 'ms';
+      observer.observe(el);
     });
-  </script>
+  } else {
+    document.querySelectorAll('[data-reveal] .row').forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
 
 </body>
 </html>
